@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 2 - Exercício 1 (3)</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Conversor de Temperaturas</h1>
+            <h2>Aula 2 - Exercício 1 (Exercício 3 em Servlet)</h2>
+            <hr />
+        </header>
+
+        <main>
+            <form action="Converter" method="POST">
+                <div>
+                    <label for="temperatura">Valor da Temperatura</label>
+                    <input type="text" name="temperatura" />
+                </div>
+                <div>
+                    <label for="operacao">Operação</label>
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="celsius-fahrenheit"
+                        value="celsius-fahrenheit"
+                        checked
+                    />
+                    <label for="celsius-fahrenheit"
+                        >Celsius &rarr; Fahrenheit</label
+                    >
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="fahrenheit-celsius"
+                        value="fahrenheit-celsius"
+                    />
+                    <label for="fahrenheit-celsius"
+                        >Fahrenheit &rarr; Celsius</label
+                    >
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="celsius-kelvin"
+                        value="celsius-kelvin"
+                    />
+                    <label for="celsius-kelvin">Celsius &rarr; Kelvin</label>
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="kelvin-celsius"
+                        value="kelvin-celsius"
+                    />
+                    <label for="kelvin-celsius">Kelvin &rarr; Celsius</label>
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="fahrenheit-kelvin"
+                        value="fahrenheit-kelvin"
+                    />
+                    <label for="fahrenheit-kelvin"
+                        >Fahrenheit &rarr; Kelvin</label
+                    >
+                    <br />
+                    <input
+                        type="radio"
+                        name="operacao"
+                        id="kelvin-fahrenheit"
+                        value="kelvin-fahrenheit"
+                    />
+                    <label for="kelvin-fahrenheit"
+                        >Kelvin &rarr; Fahrenheit</label
+                    >
+                    <br />
+                </div>
+                <button type="submit">Converter</button>
+            </form>
+        </main>
+    </body>
+</html>

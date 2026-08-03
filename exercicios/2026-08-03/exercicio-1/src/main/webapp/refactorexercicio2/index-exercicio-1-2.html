@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 2 - Exercício 1 (3)</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Calculadora</h1>
+            <h2>Aula 2 - Exercício 1 (Exercício 2 em Servlet)</h2>
+            <hr />
+        </header>
+
+        <main>
+            <form action="Calcular" method="POST">
+                <div>
+                    <label for="valor1">Valor 1</label>
+                    <input type="”text”" name="valor1" />
+                </div>
+                <div>
+                    <label for="valor2">Valor 2</label>
+                    <input type="”text”" name="valor2" />
+                </div>
+                <div>
+                    <label for="operacao">Operação</label>
+                    <select name="operacao">
+                        <option value="+">Adição</option>
+                        <option value="-">Subtração</option>
+                        <option value="*">Multiplicação</option>
+                        <option value="/">Divisão</option>
+                        <option value="%">Módulo (resto da divisão)</option>
+                    </select>
+                </div>
+                <button type="submit">Calcular</button>
+            </form>
+        </main>
+    </body>
+</html>
