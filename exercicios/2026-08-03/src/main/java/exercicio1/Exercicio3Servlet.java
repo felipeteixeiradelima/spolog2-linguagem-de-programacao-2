@@ -1,4 +1,4 @@
-package refactorexercicio3;
+package exercicio1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
