@@ -1,4 +1,4 @@
-package refactorexercicio2;
+package refactorexercicio3;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,16 +10,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Calcular
+ * Servlet implementation class Exercicio3Servlet
  */
-@WebServlet("/Calcular")
-public class Calcular extends HttpServlet {
+@WebServlet("/Exercicio3Servlet")
+public class Exercicio3Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Default constructor.
 	 */
-	public Calcular() {
+	public Exercicio3Servlet() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -42,24 +42,51 @@ public class Calcular extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private double calcular(double valor1, double valor2, String operacao) {
+	private double Exercicio3ServletCelciusParaFahrenheit(double temperatura) {
+		return temperatura * 1.8 + 32;
+	}
+
+	private double Exercicio3ServletFahrenheitParaCelsius(double temperatura) {
+		return (temperatura - 32) / 1.8;
+	}
+
+	private double Exercicio3ServletCelsiusParaKelvin(double temperatura) {
+		return temperatura + 273.15;
+	}
+
+	private double Exercicio3ServletKelvinParaCelsius(double temperatura) {
+		return temperatura - 273.15;
+	}
+
+	private double Exercicio3ServletFahrenheitParaKelvin(double temperatura) {
+		return (temperatura + 459.67) / 1.8;
+	}
+
+	private double Exercicio3ServletKelvinParaFahrenheit(double temperatura) {
+		return temperatura * 1.8 - 459.67;
+	}
+
+	private double Exercicio3Servlet(double temperatura, String tipo) {
 		double resultado = 0.0;
 
-		switch (operacao) {
-			case "+":
-				resultado = valor1 + valor2;
+		switch (tipo) {
+			case "celsius-fahrenheit":
+				resultado = Exercicio3ServletCelciusParaFahrenheit(temperatura);
 				break;
-			case "-":
-				resultado = valor1 - valor2;
+			case "fahrenheit-celsius":
+				resultado = Exercicio3ServletFahrenheitParaCelsius(temperatura);
 				break;
-			case "*":
-				resultado = valor1 * valor2;
+			case "celsius-kelvin":
+				resultado = Exercicio3ServletCelsiusParaKelvin(temperatura);
 				break;
-			case "/":
-				resultado = valor1 / valor2;
+			case "kelvin-celsius":
+				resultado = Exercicio3ServletKelvinParaCelsius(temperatura);
 				break;
-			case "%":
-				resultado = valor1 % valor2;
+			case "fahrenheit-kelvin":
+				resultado = Exercicio3ServletKelvinParaFahrenheit(temperatura);
+				break;
+			case "kelvin-fahrenheit":
+				resultado = Exercicio3ServletKelvinParaFahrenheit(temperatura);
 				break;
 		}
 
@@ -80,29 +107,25 @@ public class Calcular extends HttpServlet {
 			out.println("<title>Resultado - Exercicio 2 (Java Servlet)</title>");
 			out.println("</head>");
 
-			double valor1;
-			double valor2;
+			double temperatura;
 			String operacao = request.getParameter("operacao");
-			String stringValor1 = request.getParameter("valor1");
-			String stringValor2 = request.getParameter("valor2");
+			String stringTemperatura = request.getParameter("temperatura");
 
-			if (stringValor1.isEmpty() | stringValor2.isEmpty() | operacao.isEmpty()) {
+			if (stringTemperatura.isEmpty()) {
 				out.println("Preencha todos os campos.");
 				return;
 			}
 
 			try {
-				valor1 = Double.parseDouble(stringValor1);
-				valor2 = Double.parseDouble(stringValor2);
+				temperatura = Double.parseDouble(stringTemperatura);
 			} catch (NumberFormatException e) {
-				out.println("Digite números válidos (números decimais são separados por .).");
+				out.println("Digite um número válido (números decimais são separados por .).");
 				return;
 			}
 
-			double resultado = calcular(valor1, valor2, operacao);
+			double resultado = Exercicio3Servlet(temperatura, operacao);
 
 			out.println("<p>Resultado: " + resultado + "</p>");
-
 		}
 	}
 }
