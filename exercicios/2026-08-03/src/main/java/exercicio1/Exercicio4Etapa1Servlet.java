@@ -13,13 +13,13 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class Exercicio4ServletA
  */
 @WebServlet("/Exercicio4ServletA")
-public class Exercicio4ServletA extends HttpServlet {
+public class Exercicio4Etapa1Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
 	 * Default constructor.
      */
-    public Exercicio4ServletA() {
+    public Exercicio4Etapa1Servlet() {
         // TODO Auto-generated constructor stub
     }
 

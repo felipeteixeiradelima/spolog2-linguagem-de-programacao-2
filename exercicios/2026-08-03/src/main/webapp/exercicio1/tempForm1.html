@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastro Cliente</title>
+        <style>
+            main {
+                display: flex;
+                width: 50%;
+                max-width: 720px;
+                margin: auto;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .form-item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 10px;
+            }
+
+            label {
+                margin: 2.5px;
+            }
+
+            input {
+                margin: 2.5px;
+                height: 20px;
+            }
+
+            .radio {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Catálogo de Livros</h1>
+            <h2>Cadastro Cliente</h2>
+            <hr />
+        </header>
+
+        <main>
+            <form action="Exercicio4Etapa1Servlet" method="POST">
+                <div class="form-item">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" name="nome" />
+                </div>
+                <div class="form-item">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" />
+                </div>
+                <div class="form-item radio">
+                    <label for="sexo">Sexo</label>
+                    <div class="radio">
+                        <input
+                            type="radio"
+                            name="sexo"
+                            id="masculino"
+                            value="masculino"
+                            checked
+                        />
+                        <label for="masculino">Masculino</label>
+                        <input
+                            type="radio"
+                            name="sexo"
+                            id="feminino"
+                            value="feminino"
+                        />
+                        <label for="feminino">Feminino</label>
+                        <input
+                            type="radio"
+                            name="sexo"
+                            id="outro"
+                            value="outro"
+                        />
+                        <label for="outro">Outro</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="endereço">Endereço</label>
+                    <input type="text" name="endereço" />
+                </div>
+                <div class="form-item">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" />
+                </div>
+                <div class="form-item">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                        <option value="ES">ES</option>
+                    </select>
+                </div>
+                <button type="submit">Próximo</button>
+            </form>
+        </main>
+    </body>
+</html>

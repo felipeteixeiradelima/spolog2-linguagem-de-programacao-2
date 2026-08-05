@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastro Cliente</title>
+        <style>
+            main {
+                display: flex;
+                width: 50%;
+                max-width: 720px;
+                margin: auto;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .form-item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 10px;
+            }
+
+            label {
+                margin: 2.5px;
+            }
+
+            input {
+                margin: 2.5px;
+                height: 20px;
+            }
+
+            .radio {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Catálogo de Livros</h1>
+            <h2>Pagamento</h2>
+            <hr />
+        </header>
+
+        <main>
+            <form action="Exercicio4Etapa2Servlet" method="POST">
+                <div class="form-item radio">
+                    <label for="forma-pagamento">Forma de Pagamento</label>
+                    <div class="radio">
+                        <input
+                            type="radio"
+                            name="forma-pagamento"
+                            id="cartao-credito"
+                            value="cartao-credito"
+                            checked
+                        />
+                        <label for="cartao-credito">Cartão de Crédito</label>
+                        <input
+                            type="radio"
+                            name="forma-pagamento"
+                            id="pix"
+                            value="pix"
+                        />
+                        <label for="pix">PIX</label>
+                        <input
+                            type="radio"
+                            name="forma-pagamento"
+                            id="boleto"
+                            value="boleto"
+                        />
+                        <label for="boleto">Boleto Bancário</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="parcelamento">Parcelamento</label>
+                    <select name="parcelamento" id="parcelamento">
+                        <option value="1 x <valor do livro>">1 x &lt;valor do livro&gt;</option>
+                        <option value="2 x <valor do livro>">2 x &lt;valor do livro/2&gt;</option>
+                        <option value="3 x <valor do livro>">3 x &lt;valor do livro/3&gt;</option>
+                    </select>
+                </div>
+                <button type="submit">Próximo</button>
+            </form>
+        </main>
+    </body>
+</html>

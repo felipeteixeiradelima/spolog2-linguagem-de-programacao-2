@@ -4,6 +4,35 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Aula 2 - Exercício 1 (4)</title>
+        <style>
+            main {
+                display: flex;
+                width: 75%;
+                margin: auto;
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid gray;
+                border-radius: 10px;
+                margin: 10px;
+                padding: 10px;
+                width: 100%;
+            }
+
+            .card-title {
+                text-align: center;
+            }
+
+            img {
+                width: 50%;
+                max-width: 256px;
+                margin: 20px;
+                margin-top: auto;
+            }
+        </style>
     </head>
 
     <body>
@@ -14,13 +43,37 @@
         </header>
 
         <main>
-            <div>
-                <h3>Harry Potter e a Pedra Filosofal</h3>
+            <div class="card">
+                <h3 class="card-title">Harry Potter e a Pedra Filosofal</h3>
                 <img
-                    src="resources/harry-potter.jpg"
+                    src="../resources/harry-poter.jpg"
                     alt="Harry Potter e a Pedra Filosofal"
                 />
-                <button type="button" onclick="Exercicio4ServletA"></button>
+                <p>R$ 45,90</p>
+                <button type="button" onclick="Exercicio4ServletA">
+                    Comprar
+                </button>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Jogos Vorazes</h3>
+                <img src="../resources/jogos-vorazes.jpg" alt="Jogos Vorazes" />
+                <p>R$ 54,50</p>
+                <button type="button" onclick="Exercicio4ServletA">
+                    Comprar
+                </button>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Percy Jackson e o Ladrão de Raios</h3>
+                <img
+                    src="../resources/percy-jackson.jpg"
+                    alt="Percy Jackson e o Ladrão de Raios"
+                />
+                <p>R$ 38,20</p>
+                <button type="button" onclick="Exercicio4ServletA">
+                    Comprar
+                </button>
             </div>
         </main>
     </body>
