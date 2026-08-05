@@ -42,7 +42,7 @@ public class Exercicio2Servlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private double Exercicio2Servlet(double valor1, double valor2, String operacao) {
+	private double calcular(double valor1, double valor2, String operacao) {
 		double resultado = 0.0;
 
 		switch (operacao) {
@@ -99,7 +99,7 @@ public class Exercicio2Servlet extends HttpServlet {
 				return;
 			}
 
-			double resultado = Exercicio2Servlet(valor1, valor2, operacao);
+			double resultado = calcular(valor1, valor2, operacao);
 
 			out.println("<p>Resultado: " + resultado + "</p>");
 

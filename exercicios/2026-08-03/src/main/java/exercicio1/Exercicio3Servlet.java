@@ -42,51 +42,51 @@ public class Exercicio3Servlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private double Exercicio3ServletCelciusParaFahrenheit(double temperatura) {
+	private double converterCelciusParaFahrenheit(double temperatura) {
 		return temperatura * 1.8 + 32;
 	}
 
-	private double Exercicio3ServletFahrenheitParaCelsius(double temperatura) {
+	private double converterFahrenheitParaCelsius(double temperatura) {
 		return (temperatura - 32) / 1.8;
 	}
 
-	private double Exercicio3ServletCelsiusParaKelvin(double temperatura) {
+	private double converterCelsiusParaKelvin(double temperatura) {
 		return temperatura + 273.15;
 	}
 
-	private double Exercicio3ServletKelvinParaCelsius(double temperatura) {
+	private double converterKelvinParaCelsius(double temperatura) {
 		return temperatura - 273.15;
 	}
 
-	private double Exercicio3ServletFahrenheitParaKelvin(double temperatura) {
+	private double converterFahrenheitParaKelvin(double temperatura) {
 		return (temperatura + 459.67) / 1.8;
 	}
 
-	private double Exercicio3ServletKelvinParaFahrenheit(double temperatura) {
+	private double converterKelvinParaFahrenheit(double temperatura) {
 		return temperatura * 1.8 - 459.67;
 	}
 
-	private double Exercicio3Servlet(double temperatura, String tipo) {
+	private double converter(double temperatura, String tipo) {
 		double resultado = 0.0;
 
 		switch (tipo) {
 			case "celsius-fahrenheit":
-				resultado = Exercicio3ServletCelciusParaFahrenheit(temperatura);
+				resultado = converterCelciusParaFahrenheit(temperatura);
 				break;
 			case "fahrenheit-celsius":
-				resultado = Exercicio3ServletFahrenheitParaCelsius(temperatura);
+				resultado = converterFahrenheitParaCelsius(temperatura);
 				break;
 			case "celsius-kelvin":
-				resultado = Exercicio3ServletCelsiusParaKelvin(temperatura);
+				resultado = converterCelsiusParaKelvin(temperatura);
 				break;
 			case "kelvin-celsius":
-				resultado = Exercicio3ServletKelvinParaCelsius(temperatura);
+				resultado = converterKelvinParaCelsius(temperatura);
 				break;
 			case "fahrenheit-kelvin":
-				resultado = Exercicio3ServletKelvinParaFahrenheit(temperatura);
+				resultado = converterFahrenheitParaKelvin(temperatura);
 				break;
 			case "kelvin-fahrenheit":
-				resultado = Exercicio3ServletKelvinParaFahrenheit(temperatura);
+				resultado = converterKelvinParaFahrenheit(temperatura);
 				break;
 		}
 
@@ -123,7 +123,7 @@ public class Exercicio3Servlet extends HttpServlet {
 				return;
 			}
 
-			double resultado = Exercicio3Servlet(temperatura, operacao);
+			double resultado = converter(temperatura, operacao);
 
 			out.println("<p>Resultado: " + resultado + "</p>");
 		}
