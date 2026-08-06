@@ -50,18 +50,30 @@
                     alt="Harry Potter e a Pedra Filosofal"
                 />
                 <p>R$ 45,90</p>
-                <button type="button" onclick="Exercicio4ServletA">
-                    Comprar
-                </button>
+                <form action="../Exercicio4Etapa1Servlet" method="post">
+                    <input
+                        type="hidden"
+                        name="nome-livro"
+                        value="Harry Potter e a Pedra Filosofal"
+                    />
+                    <input type="hidden" name="preco-livro" value="45.90" />
+                    <button type="submit">Comprar</button>
+                </form>
             </div>
 
             <div class="card">
                 <h3 class="card-title">Jogos Vorazes</h3>
                 <img src="../resources/jogos-vorazes.jpg" alt="Jogos Vorazes" />
                 <p>R$ 54,50</p>
-                <button type="button" onclick="Exercicio4ServletA">
-                    Comprar
-                </button>
+                <form action="../Exercicio4Etapa1Servlet" method="post">
+                    <input
+                        type="hidden"
+                        name="nome-livro"
+                        value="Jogos Vorazes"
+                    />
+                    <input type="hidden" name="preco-livro" value="54.50" />
+                    <button type="submit">Comprar</button>
+                </form>
             </div>
 
             <div class="card">
@@ -71,9 +83,15 @@
                     alt="Percy Jackson e o Ladrão de Raios"
                 />
                 <p>R$ 38,20</p>
-                <button type="button" onclick="Exercicio4ServletA">
-                    Comprar
-                </button>
+                <form action="../Exercicio4Etapa1Servlet" method="post">
+                    <input
+                        type="hidden"
+                        name="nome-livro"
+                        value="Percy Jackson e o Ladrão de Raios"
+                    />
+                    <input type="hidden" name="preco-livro" value="38.20" />
+                    <button type="submit">Comprar</button>
+                </form>
             </div>
         </main>
     </body>

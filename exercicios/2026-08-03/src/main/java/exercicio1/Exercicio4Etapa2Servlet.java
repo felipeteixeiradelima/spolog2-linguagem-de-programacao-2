@@ -10,16 +10,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Exercicio4Etapa1Servlet
+ * Servlet implementation class Exercicio4Etapa2Servlet
  */
-@WebServlet("/Exercicio4Etapa1Servlet")
-public class Exercicio4Etapa1Servlet extends HttpServlet {
+@WebServlet("/Exercicio4Etapa2Servlet")
+public class Exercicio4Etapa2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Default constructor.
 	 */
-	public Exercicio4Etapa1Servlet() {
+	public Exercicio4Etapa2Servlet() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -49,6 +49,15 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 
 		String nomeLivro = request.getParameter("nome-livro");
 		double precoLivro = Double.parseDouble(request.getParameter("preco-livro"));
+		double precoLivro2Parcelas = precoLivro / 2;
+		double precoLivro3Parcelas = precoLivro / 3;
+
+		String nomeCliente = request.getParameter("nome");
+		String cpfCliente = request.getParameter("cpf");
+		String sexoCliente = request.getParameter("sexo");
+		String enderecoCliente = request.getParameter("endereco");
+		String cidadeCliente = request.getParameter("cidade");
+		String estadoCliente = request.getParameter("estado");
 
 		try (PrintWriter out = response.getWriter()) {
 			out.println("<!doctype html>\n" + //
@@ -56,7 +65,7 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 					"    <head>\n" + //
 					"        <meta charset=\"UTF-8\" />\n" + //
 					"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n" + //
-					"        <title>Cadastro Cliente</title>\n" + //
+					"        <title>Pagamento</title>\n" + //
 					"        <style>\n" + //
 					"            main {\n" + //
 					"                display: flex;\n" + //
@@ -91,69 +100,65 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 					"    <body>\n" + //
 					"        <header>\n" + //
 					"            <h1>Catálogo de Livros</h1>\n" + //
-					"            <h2>Cadastro Cliente</h2>\n" + //
+					"            <h2>Pagamento</h2>\n" + //
 					"            <hr />\n" + //
 					"        </header>\n" + //
 					"        <main>\n" + //
-					"            <form action=\"Exercicio4Etapa2Servlet\" method=\"POST\">\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"nome\">Nome Completo</label>\n" + //
-					"                    <input type=\"text\" name=\"nome\" required />\n" + //
-					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"cpf\">CPF</label>\n" + //
-					"                    <input type=\"text\" name=\"cpf\" required />\n" + //
-					"                </div>\n" + //
+					"            <form action=\"Exercicio4Etapa3Servlet\" method=\"POST\">\n" + //
 					"                <div class=\"form-item radio\">\n" + //
-					"                    <label for=\"sexo\">Sexo</label>\n" + //
+					"                    <label for=\"forma-pagamento\">Forma de Pagamento</label>\n" + //
 					"                    <div class=\"radio\">\n" + //
 					"                        <input\n" + //
 					"                            type=\"radio\"\n" + //
-					"                            name=\"sexo\"\n" + //
-					"                            id=\"masculino\"\n" + //
-					"                            value=\"Masculino\"\n" + //
+					"                            name=\"forma-pagamento\"\n" + //
+					"                            id=\"cartao-credito\"\n" + //
+					"                            value=\"Cartão de Crédito\"\n" + //
 					"                            checked\n" + //
 					"                            required\n" + //
 					"                        />\n" + //
-					"                        <label for=\"masculino\">Masculino</label>\n" + //
+					"                        <label for=\"cartao-credito\">Cartão de Crédito</label>\n" + //
 					"                        <input\n" + //
 					"                            type=\"radio\"\n" + //
-					"                            name=\"sexo\"\n" + //
-					"                            id=\"feminino\"\n" + //
-					"                            value=\"Feminino\"\n" + //
+					"                            name=\"forma-pagamento\"\n" + //
+					"                            id=\"pix\"\n" + //
+					"                            value=\"PIX\"\n" + //
 					"                            required\n" + //
 					"                        />\n" + //
-					"                        <label for=\"feminino\">Feminino</label>\n" + //
+					"                        <label for=\"pix\">PIX</label>\n" + //
 					"                        <input\n" + //
 					"                            type=\"radio\"\n" + //
-					"                            name=\"sexo\"\n" + //
-					"                            id=\"outro\"\n" + //
-					"                            value=\"Outro\"\n" + //
+					"                            name=\"forma-pagamento\"\n" + //
+					"                            id=\"boleto\"\n" + //
+					"                            value=\"Boleto Bancário\"\n" + //
 					"                            required\n" + //
 					"                        />\n" + //
-					"                        <label for=\"outro\">Outro</label>\n" + //
+					"                        <label for=\"boleto\">Boleto Bancário</label>\n" + //
 					"                    </div>\n" + //
 					"                </div>\n" + //
 					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"endereco\">Endereço</label>\n" + //
-					"                    <input type=\"text\" name=\"endereco\" required />\n" + //
-					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"cidade\">Cidade</label>\n" + //
-					"                    <input type=\"text\" name=\"cidade\" required />\n" + //
-					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"estado\">Estado</label>\n" + //
-					"                    <select name=\"estado\" id=\"estado\" required>\n" + //
-					"                        <option value=\"SP\">SP</option>\n" + //
-					"                        <option value=\"RJ\">RJ</option>\n" + //
-					"                        <option value=\"MG\">MG</option>\n" + //
-					"                        <option value=\"ES\">ES</option>\n" + //
+					"                    <label for=\"parcelamento\">Parcelamento</label>\n" + //
+					"                    <select name=\"parcelamento\" id=\"parcelamento\" required>\n" + //
+					"                        <option value=\"1 x R$" + precoLivro + "\">1 x R$" + precoLivro
+					+ "</option>\n"
+					+ //
+					"                        <option value=\"2 x R$" + precoLivro2Parcelas + "\">2 x R$"
+					+ precoLivro2Parcelas + "</option>\n"
+					+ //
+					"                        <option value=\"3 x R$" + precoLivro3Parcelas + "\">3 x R$"
+					+ precoLivro3Parcelas + "</option>\n"
+					+ //
 					"                    </select>\n" + //
 					"                </div>\n" + //
 					"                <input type=\"hidden\" name=\"nome-livro\" value=\"" + nomeLivro + "\"/>" + //
 					"                <input type=\"hidden\" name=\"preco-livro\" value=\"" + precoLivro + "\"/>" + //
-					"                <button type=\"submit\">Próximo</button>\n" + //
+					"                <input type=\"hidden\" name=\"nome\" value=\"" + nomeCliente + "\"/>" + //
+					"                <input type=\"hidden\" name=\"cpf\" value=\"" + cpfCliente + "\"/>" + //
+					"                <input type=\"hidden\" name=\"sexo\" value=\"" + sexoCliente + "\"/>" + //
+					"                <input type=\"hidden\" name=\"endereco\" value=\"" + enderecoCliente
+					+ "\"/>" + //
+					"                <input type=\"hidden\" name=\"cidade\" value=\"" + cidadeCliente + "\"/>" + //
+					"                <input type=\"hidden\" name=\"estado\" value=\"" + estadoCliente + "\"/>" + //
+					"                <button type=\"submit\">Finalizar Compra</button>\n" + //
 					"            </form>\n" + //
 					"        </main>\n" + //
 					"    </body>\n" + //
