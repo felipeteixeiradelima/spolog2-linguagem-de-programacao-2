@@ -9,11 +9,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/exercicio2/PesMetrosServlet")
-public class PesMetrosServlet extends HttpServlet {
+@WebServlet("/exercicio2/IndexHandlerServlet")
+public class IndexHandlerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public PesMetrosServlet() {
+    public IndexHandlerServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -33,19 +33,25 @@ public class PesMetrosServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/resultado.jsp");
+        RequestDispatcher requestDispatcher = null;
 
         try {
-            request.setAttribute("grandeza-origem", "pés");
-            request.setAttribute("grandeza-destino", "metros");
+            String operacao = request.getParameter("operacao");
 
-            String medida = request.getParameter("medida").replace(",", ".");
-            request.setAttribute("medida", medida);
-
-            double medidaPes = Double.parseDouble(medida);
-            double medidaMetros = medidaPes * 0.3048;
-
-            request.setAttribute("medida-convertida", medidaMetros);
+            switch (operacao) {
+                case "milhas-quilometros":
+                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/MilhasQuilometrosServlet");
+                    break;
+                case "quilometros-milhas":
+                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/QuilometrosMilhasServlet");
+                    break;
+                case "pes-metros":
+                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/PesMetrosServlet");
+                    break;
+                case "metros-pes":
+                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/MetrosPesServlet");
+                    break;
+            }
         } catch (Exception e) {
             System.err.println(e);
         } finally {

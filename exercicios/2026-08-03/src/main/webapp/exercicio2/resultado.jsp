@@ -15,16 +15,22 @@
 
         <main>
             <%
-                double medida = (double) request.getAttribute("medida");
-                double medidaConvertida = (double) request.getAttribute("medida-convertida");
-                String grandezaOrigem = request.getAttribute("grandeza-origem");
-                String grandezaDestino = request.getAttribute("grandeza-destino");
+                out.println(request.getAttribute("medida"));
+                out.println(request.getAttribute("medida-convertida"));
+                out.println(request.getAttribute("grandeza-origem"));
+                out.println(request.getAttribute("grandeza-destino"));
                 
-                if (medidaConvertida == null) {
-                    out.printf("<p>A medida \"%s\" é inválida!</p>\n", medida);
+                <!-- double medida = (double) request.getAttribute("medida");
+                Object medidaConvertidaBruta = request.getAttribute("medida-convertida");
+                String grandezaOrigem = (String) request.getAttribute("grandeza-origem");
+                String grandezaDestino = (String) request.getAttribute("grandeza-destino");
+
+                if (medidaConvertidaBruta == null) {
+                    out.println("<p>A medida \"" + medida + "\" é inválida!</p>");
                 } else {
-                    out.printf("<p>%s %s equivale a %s %s!\n", medida, grandezaOrigem, medidaConvertida, grandezaDestino);
-                }
+                    double medidaConvertida = (double) medidaConvertidaBruta;
+                    out.println("<p>" + medida + " " + grandezaOrigem + " equivale a " + medidaConvertida + " " + grandezaDestino + "!<p>");
+                } -->
             %>
         </main>
     </body>

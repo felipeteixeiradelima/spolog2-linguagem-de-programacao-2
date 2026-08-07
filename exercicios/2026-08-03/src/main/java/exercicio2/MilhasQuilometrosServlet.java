@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/MilhasQuilometrosServlet")
+@WebServlet("/exercicio2/MilhasQuilometrosServlet")
 public class MilhasQuilometrosServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,7 @@ public class MilhasQuilometrosServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/resultado.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/resultado.jsp");
 
         try {
             request.setAttribute("grandeza-origem", "milhas");
