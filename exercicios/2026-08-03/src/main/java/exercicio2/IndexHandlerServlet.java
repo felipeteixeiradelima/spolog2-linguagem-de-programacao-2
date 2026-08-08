@@ -40,10 +40,12 @@ public class IndexHandlerServlet extends HttpServlet {
 
             switch (operacao) {
                 case "milhas-quilometros":
-                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/MilhasQuilometrosServlet");
+                    requestDispatcher = getServletContext()
+                            .getRequestDispatcher("/exercicio2/MilhasQuilometrosServlet");
                     break;
                 case "quilometros-milhas":
-                    requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/QuilometrosMilhasServlet");
+                    requestDispatcher = getServletContext()
+                            .getRequestDispatcher("/exercicio2/QuilometrosMilhasServlet");
                     break;
                 case "pes-metros":
                     requestDispatcher = getServletContext().getRequestDispatcher("/exercicio2/PesMetrosServlet");
