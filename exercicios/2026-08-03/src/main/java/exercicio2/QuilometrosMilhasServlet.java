@@ -47,7 +47,10 @@ public class QuilometrosMilhasServlet extends HttpServlet {
 
             request.setAttribute("medida-convertida", medidaMilhas);
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println("Ocorreu um erro ao processar a solicitação: " + e.toString());
+            System.err.println("Causa: " + e.getCause());
+            System.err.println("Stack trace:");
+            e.printStackTrace();
         } finally {
             requestDispatcher.forward(request, response);
         }
