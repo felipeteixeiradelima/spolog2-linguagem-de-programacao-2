@@ -3,6 +3,7 @@
 <html lang="pt-br">
     <head>
         <title>Resultado</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <header>
@@ -12,18 +13,18 @@
         </header>
 
         <main>
-            <div>
+            <div class="resultado">
                 <%
                     Object medidaBruta = request.getAttribute("medida");
                     Object medidaConvertidaBruta = request.getAttribute("medida-convertida");
                     String grandezaOrigem = (String) request.getAttribute("grandeza-origem");
                     String grandezaDestino = (String) request.getAttribute("grandeza-destino");
                     if (medidaBruta == null || medidaConvertidaBruta == null) {
-                        out.println("<p>A medida \"" + medidaBruta + "\" é inválida!</p>");
+                        out.println("<p>A medida <strong>\"" + medidaBruta + "\"</strong> é inválida!</p>");
                     } else {
                         double medida = Double.parseDouble(medidaBruta.toString());
                         double medidaConvertida = Double.parseDouble(medidaConvertidaBruta.toString());
-                        out.println("<p>" + medida + " " + grandezaOrigem + " equivale a " + medidaConvertida + " " + grandezaDestino + "!<p>");
+                        out.println("<p><strong>" + medida + " " + grandezaOrigem + "</strong> equivalem a <strong>" + medidaConvertida + " " + grandezaDestino + "</strong>!</p>");
                     }
                 %>
             </div>

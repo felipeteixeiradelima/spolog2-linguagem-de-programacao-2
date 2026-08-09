@@ -3,6 +3,7 @@ package exercicio1;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio3Servlet
  */
-@WebServlet("/Exercicio3Servlet")
+@WebServlet("/exercicio1/Exercicio3Servlet")
 public class Exercicio3Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -98,34 +99,21 @@ public class Exercicio3Servlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=UTF-8");
 
-		try (PrintWriter out = response.getWriter()) {
-			out.println("<!DOCTYPE html>");
-			out.println("<html lang=\"pt-br\">");
-			out.println("<head>");
-			out.println("<meta charset=\"UTF-8\">");
-			out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-			out.println("<title>Resultado - Exercicio 2 (Java Servlet)</title>");
-			out.println("</head>");
+		double temperatura = 0.0;
+		String operacao = request.getParameter("operacao");
+		String stringTemperatura = request.getParameter("temperatura");
+		Object resultado = null;
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/exercicio1/resultado.jsp");
 
-			double temperatura;
-			String operacao = request.getParameter("operacao");
-			String stringTemperatura = request.getParameter("temperatura");
-
-			if (stringTemperatura.isEmpty()) {
-				out.println("Preencha todos os campos.");
-				return;
-			}
-
-			try {
-				temperatura = Double.parseDouble(stringTemperatura);
-			} catch (NumberFormatException e) {
-				out.println("Digite um número válido (números decimais são separados por .).");
-				return;
-			}
-
-			double resultado = converter(temperatura, operacao);
-
-			out.println("<p>Resultado: " + resultado + "</p>");
+		try {
+			temperatura = Double.parseDouble(stringTemperatura);
+			resultado = converter(temperatura, operacao);
+		} catch (NumberFormatException e) {
+			resultado = (String) "Valores inválidos. Por favor, insira números válidos.";
+		} finally {
+			request.setAttribute("title", "Conversor de Temperaturas");
+			request.setAttribute("resultado", "<strong>Resultado:</strong> " + resultado);
+			dispatcher.forward(request, response);
 		}
 	}
 }

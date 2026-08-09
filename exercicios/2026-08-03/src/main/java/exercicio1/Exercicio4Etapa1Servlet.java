@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio4Etapa1Servlet
  */
-@WebServlet("/Exercicio4Etapa1Servlet")
+@WebServlet("/exercicio1/Exercicio4Etapa1Servlet")
 public class Exercicio4Etapa1Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -57,36 +57,7 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 					"        <meta charset=\"UTF-8\" />\n" + //
 					"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n" + //
 					"        <title>Cadastro Cliente</title>\n" + //
-					"        <style>\n" + //
-					"            main {\n" + //
-					"                display: flex;\n" + //
-					"                width: 50%;\n" + //
-					"                max-width: 720px;\n" + //
-					"                margin: auto;\n" + //
-					"            }\n" + //
-					"            form {\n" + //
-					"                display: flex;\n" + //
-					"                flex-direction: column;\n" + //
-					"                align-items: center;\n" + //
-					"                width: 100%;\n" + //
-					"            }\n" + //
-					"            .form-item {\n" + //
-					"                display: flex;\n" + //
-					"                flex-direction: column;\n" + //
-					"                width: 100%;\n" + //
-					"                margin: 10px;\n" + //
-					"            }\n" + //
-					"            label {\n" + //
-					"                margin: 2.5px;\n" + //
-					"            }\n" + //
-					"            input {\n" + //
-					"                margin: 2.5px;\n" + //
-					"                height: 20px;\n" + //
-					"            }\n" + //
-					"            .radio {\n" + //
-					"                display: flex;\n" + //
-					"            }\n" + //
-					"        </style>\n" + //
+					"		 <link rel=\"stylesheet\" href=\"styles.css\" />\n" + //
 					"    </head>\n" + //
 					"    <body>\n" + //
 					"        <header>\n" + //
@@ -95,17 +66,17 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 					"            <hr />\n" + //
 					"        </header>\n" + //
 					"        <main>\n" + //
-					"            <form action=\"Exercicio4Etapa2Servlet\" method=\"POST\">\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"nome\">Nome Completo</label>\n" + //
+					"            <form action=\"Exercicio4Etapa2Servlet\" method=\"POST\" class=\"visivel\">\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"nome\" class=\"form-label\">Nome Completo</label>\n" + //
 					"                    <input type=\"text\" name=\"nome\" required />\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"cpf\">CPF</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"cpf\" class=\"form-label\">CPF</label>\n" + //
 					"                    <input type=\"text\" name=\"cpf\" required />\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item radio\">\n" + //
-					"                    <label for=\"sexo\">Sexo</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"sexo\" class=\"form-label\">Sexo</label>\n" + //
 					"                    <div class=\"radio\">\n" + //
 					"                        <input\n" + //
 					"                            type=\"radio\"\n" + //
@@ -134,16 +105,16 @@ public class Exercicio4Etapa1Servlet extends HttpServlet {
 					"                        <label for=\"outro\">Outro</label>\n" + //
 					"                    </div>\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"endereco\">Endereço</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"endereco\" class=\"form-label\">Endereço</label>\n" + //
 					"                    <input type=\"text\" name=\"endereco\" required />\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"cidade\">Cidade</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"cidade\" class=\"form-label\">Cidade</label>\n" + //
 					"                    <input type=\"text\" name=\"cidade\" required />\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"estado\">Estado</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"estado\" class=\"form-label\">Estado</label>\n" + //
 					"                    <select name=\"estado\" id=\"estado\" required>\n" + //
 					"                        <option value=\"SP\">SP</option>\n" + //
 					"                        <option value=\"RJ\">RJ</option>\n" + //

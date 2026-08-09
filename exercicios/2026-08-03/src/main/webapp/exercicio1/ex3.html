@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Aula 2 - Exercício 1 (3)</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
 
     <body>
@@ -14,20 +15,20 @@
         </header>
 
         <main>
-            <form action="Exercicio3Servlet" method="POST">
+            <form action="Exercicio3Servlet" method="POST" class="visivel">
                 <div>
-                    <label for="temperatura">Valor da Temperatura</label>
-                    <input type="text" name="temperatura" />
+                    <label for="temperatura" class="form-label">Valor da Temperatura</label>
+                    <input type="text" name="temperatura" required />
                 </div>
                 <div>
-                    <label for="operacao">Operação</label>
-                    <br />
+                    <label for="operacao" class="form-label">Operação</label>
                     <input
                         type="radio"
                         name="operacao"
                         id="celsius-fahrenheit"
                         value="celsius-fahrenheit"
                         checked
+                        required
                     />
                     <label for="celsius-fahrenheit"
                         >Celsius &rarr; Fahrenheit</label

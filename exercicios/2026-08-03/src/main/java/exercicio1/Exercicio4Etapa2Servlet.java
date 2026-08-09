@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio4Etapa2Servlet
  */
-@WebServlet("/Exercicio4Etapa2Servlet")
+@WebServlet("/exercicio1/Exercicio4Etapa2Servlet")
 public class Exercicio4Etapa2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -49,8 +49,9 @@ public class Exercicio4Etapa2Servlet extends HttpServlet {
 
 		String nomeLivro = request.getParameter("nome-livro");
 		double precoLivro = Double.parseDouble(request.getParameter("preco-livro"));
-		double precoLivro2Parcelas = precoLivro / 2;
-		double precoLivro3Parcelas = precoLivro / 3;
+		String precoLivroFormatado = "R$ " + String.format("%.2f", precoLivro);
+		String precoLivro2ParcelasFormatado = "R$ " + String.format("%.2f", precoLivro / 2);
+		String precoLivro3ParcelasFormatado = "R$ " + String.format("%.2f", precoLivro / 3);
 
 		String nomeCliente = request.getParameter("nome");
 		String cpfCliente = request.getParameter("cpf");
@@ -66,36 +67,7 @@ public class Exercicio4Etapa2Servlet extends HttpServlet {
 					"        <meta charset=\"UTF-8\" />\n" + //
 					"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n" + //
 					"        <title>Pagamento</title>\n" + //
-					"        <style>\n" + //
-					"            main {\n" + //
-					"                display: flex;\n" + //
-					"                width: 50%;\n" + //
-					"                max-width: 720px;\n" + //
-					"                margin: auto;\n" + //
-					"            }\n" + //
-					"            form {\n" + //
-					"                display: flex;\n" + //
-					"                flex-direction: column;\n" + //
-					"                align-items: center;\n" + //
-					"                width: 100%;\n" + //
-					"            }\n" + //
-					"            .form-item {\n" + //
-					"                display: flex;\n" + //
-					"                flex-direction: column;\n" + //
-					"                width: 100%;\n" + //
-					"                margin: 10px;\n" + //
-					"            }\n" + //
-					"            label {\n" + //
-					"                margin: 2.5px;\n" + //
-					"            }\n" + //
-					"            input {\n" + //
-					"                margin: 2.5px;\n" + //
-					"                height: 20px;\n" + //
-					"            }\n" + //
-					"            .radio {\n" + //
-					"                display: flex;\n" + //
-					"            }\n" + //
-					"        </style>\n" + //
+					"        <link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />\n" + //
 					"    </head>\n" + //
 					"    <body>\n" + //
 					"        <header>\n" + //
@@ -104,10 +76,11 @@ public class Exercicio4Etapa2Servlet extends HttpServlet {
 					"            <hr />\n" + //
 					"        </header>\n" + //
 					"        <main>\n" + //
-					"            <form action=\"Exercicio4Etapa3Servlet\" method=\"POST\">\n" + //
-					"                <div class=\"form-item radio\">\n" + //
-					"                    <label for=\"forma-pagamento\">Forma de Pagamento</label>\n" + //
-					"                    <div class=\"radio\">\n" + //
+					"            <form action=\"Exercicio4Etapa3Servlet\" method=\"POST\" class=\"visivel\">\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"forma-pagamento\" class=\"form-label\">Forma de Pagamento</label>\n"
+					+ //
+					"                    <div>\n" + //
 					"                        <input\n" + //
 					"                            type=\"radio\"\n" + //
 					"                            name=\"forma-pagamento\"\n" + //
@@ -135,22 +108,22 @@ public class Exercicio4Etapa2Servlet extends HttpServlet {
 					"                        <label for=\"boleto\">Boleto Bancário</label>\n" + //
 					"                    </div>\n" + //
 					"                </div>\n" + //
-					"                <div class=\"form-item\">\n" + //
-					"                    <label for=\"parcelamento\">Parcelamento</label>\n" + //
+					"                <div>\n" + //
+					"                    <label for=\"parcelamento\" class=\"form-label\">Parcelamento</label>\n" + //
 					"                    <select name=\"parcelamento\" id=\"parcelamento\" required>\n" + //
-					"                        <option value=\"1 x R$" + precoLivro + "\">1 x R$" + precoLivro
+					"                        <option value=\"1 x " + precoLivroFormatado + "\">1 x " + precoLivroFormatado
 					+ "</option>\n"
 					+ //
-					"                        <option value=\"2 x R$" + precoLivro2Parcelas + "\">2 x R$"
-					+ precoLivro2Parcelas + "</option>\n"
+					"                        <option value=\"2 x " + precoLivro2ParcelasFormatado + "\">2 x "
+					+ precoLivro2ParcelasFormatado + "</option>\n"
 					+ //
-					"                        <option value=\"3 x R$" + precoLivro3Parcelas + "\">3 x R$"
-					+ precoLivro3Parcelas + "</option>\n"
+					"                        <option value=\"3 x " + precoLivro3ParcelasFormatado + "\">3 x "
+					+ precoLivro3ParcelasFormatado + "</option>\n"
 					+ //
 					"                    </select>\n" + //
 					"                </div>\n" + //
 					"                <input type=\"hidden\" name=\"nome-livro\" value=\"" + nomeLivro + "\"/>" + //
-					"                <input type=\"hidden\" name=\"preco-livro\" value=\"" + precoLivro + "\"/>" + //
+					"                <input type=\"hidden\" name=\"preco-livro\" value=\"" + precoLivroFormatado + "\"/>" + //
 					"                <input type=\"hidden\" name=\"nome\" value=\"" + nomeCliente + "\"/>" + //
 					"                <input type=\"hidden\" name=\"cpf\" value=\"" + cpfCliente + "\"/>" + //
 					"                <input type=\"hidden\" name=\"sexo\" value=\"" + sexoCliente + "\"/>" + //

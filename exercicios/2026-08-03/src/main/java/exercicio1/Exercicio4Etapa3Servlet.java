@@ -3,6 +3,7 @@ package exercicio1;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio4Etapa3Servlet
  */
-@WebServlet("/Exercicio4Etapa3Servlet")
+@WebServlet("/exercicio1/Exercicio4Etapa3Servlet")
 public class Exercicio4Etapa3Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -47,8 +48,10 @@ public class Exercicio4Etapa3Servlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/exercicio1/resultado.jsp");
+
         String nomeLivro = request.getParameter("nome-livro");
-        double precoLivro = Double.parseDouble(request.getParameter("preco-livro"));
+        String precoLivro = request.getParameter("preco-livro");
 
         String nomeCliente = request.getParameter("nome");
         String cpfCliente = request.getParameter("cpf");
@@ -60,47 +63,29 @@ public class Exercicio4Etapa3Servlet extends HttpServlet {
         String formaPagamento = request.getParameter("forma-pagamento");
         String parcelamento = request.getParameter("parcelamento");
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!doctype html>\n" + //
-                    "<html lang=\"pt-br\">\n" + //
-                    "    <head>\n" + //
-                    "        <meta charset=\"UTF-8\" />\n" + //
-                    "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n" + //
-                    "        <title>Informações da Compra</title>\n" + //
-                    "        <style>\n" + //
-                    "            main {\n" + //
-                    "                display: flex;\n" + //
-                    "                flex-direction: column;\n" + //
-                    "                width: 50%;\n" + //
-                    "                max-width: 720px;\n" + //
-                    "                margin: auto;\n" + //
-                    "            }\n" + //
-                    "        </style>\n" + //
-                    "    </head>\n" + //
-                    "    <body>\n" + //
-                    "        <header>\n" + //
-                    "            <h1>Catálogo de Livros</h1>\n" + //
-                    "            <h2>Informações da Compra</h2>\n" + //
-                    "            <hr />\n" + //
-                    "        </header>\n" + //
-                    "        <main>\n" + //
-                    "            <h3>Informações do Livro</h3>\n" + //
-                    "            <p class=\"item\"><strong>Nome do Livro:</strong> " + nomeLivro + "</p>\n" + //
-                    "            <p class=\"item\"><strong>Preço do Livro:</strong> " + precoLivro + "</p>\n" + //
-                    "            <h3>Informações do Cliente</h3>\n" + //
-                    "            <p class=\"item\"><strong>Nome do Cliente:</strong> " + nomeCliente + "</p>\n" + //
-                    "            <p class=\"item\"><strong>CPF do Cliente:</strong> " + cpfCliente + "</p>\n" + //
-                    "            <p class=\"item\"><strong>Sexo do Cliente:</strong> " + sexoCliente + "</p>\n" + //
-                    "            <p class=\"item\"><strong>Endereço do Cliente:</strong> " + enderecoCliente + "</p>\n"
-                    + //
-                    "            <p class=\"item\"><strong>Cidade do Cliente:</strong> " + cidadeCliente + "</p>\n" + //
-                    "            <p class=\"item\"><strong>Estado do Cliente:</strong> " + estadoCliente + "</p>\n" + //
-                    "            <h3>Informações do Pagamento</h3>\n" + //
-                    "            <p class=\"item\"><strong>Forma de Pagamento:</strong> " + formaPagamento + "</p>\n" + //
-                    "            <p class=\"item\"><strong>Parcelamento:</strong> " + parcelamento + "</p>\n" + //
-                    "        </main>\n" + //
-                    "    </body>\n" + //
-                    "</html>\n");
-        }
+        String resultado = "<h3>Informações do Livro</h3>\n" + //
+                "<ul>\n" + //
+                "<li><strong>Nome:</strong> " + nomeLivro + "</li>\n" + //
+                "<li><strong>Preço:</strong> " + precoLivro + "</li>\n" + //
+                "</ul>\n" + //
+                "<h3>Informações do Cliente</h3>\n" + //
+                "<ul>\n" + //
+                "<li><strong>Nome:</strong> " + nomeCliente + "</li>\n" + //
+                "<li><strong>CPF:</strong> " + cpfCliente + "</li>\n" + //
+                "<li><strong>Sexo:</strong> " + sexoCliente + "</li>\n" + //
+                "<li><strong>Endereço:</strong> " + enderecoCliente + "</li>\n" + //
+                "<li><strong>Cidade:</strong> " + cidadeCliente + "</li>\n" + //
+                "<li><strong>Estado:</strong> " + estadoCliente + "</li>\n" + //
+                "</ul>\n" + //
+                "<h3>Informações do Pagamento</h3>\n" + //
+                "<ul>\n" + //
+                "<li><strong>Forma de Pagamento:</strong> " + formaPagamento + "</li>\n" + //
+                "<li><strong>Parcelamento:</strong> " + parcelamento + "</li>\n" + //
+                "</ul>\n";
+
+        request.setAttribute("title", "Catalogo de Livros");
+        request.setAttribute("resultado", resultado);
+
+        dispatcher.forward(request, response);
     }
 }

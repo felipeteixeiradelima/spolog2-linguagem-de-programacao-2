@@ -1,8 +1,8 @@
 package exercicio1;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio2Servlet
  */
-@WebServlet("/Exercicio2Servlet")
+@WebServlet("/exercicio1/Exercicio2Servlet")
 public class Exercicio2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -71,38 +71,24 @@ public class Exercicio2Servlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=UTF-8");
 
-		try (PrintWriter out = response.getWriter()) {
-			out.println("<!DOCTYPE html>");
-			out.println("<html lang=\"pt-br\">");
-			out.println("<head>");
-			out.println("<meta charset=\"UTF-8\">");
-			out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-			out.println("<title>Resultado - Exercicio 2 (Java Servlet)</title>");
-			out.println("</head>");
+		double valor1 = 0.0;
+		double valor2 = 0.0;
+		String operacao = request.getParameter("operacao");
+		String stringValor1 = request.getParameter("valor1");
+		String stringValor2 = request.getParameter("valor2");
+		Object resultado = null;
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/exercicio1/resultado.jsp");
 
-			double valor1;
-			double valor2;
-			String operacao = request.getParameter("operacao");
-			String stringValor1 = request.getParameter("valor1");
-			String stringValor2 = request.getParameter("valor2");
-
-			if (stringValor1.isEmpty() | stringValor2.isEmpty() | operacao.isEmpty()) {
-				out.println("Preencha todos os campos.");
-				return;
-			}
-
-			try {
-				valor1 = Double.parseDouble(stringValor1);
-				valor2 = Double.parseDouble(stringValor2);
-			} catch (NumberFormatException e) {
-				out.println("Digite números válidos (números decimais são separados por .).");
-				return;
-			}
-
-			double resultado = calcular(valor1, valor2, operacao);
-
-			out.println("<p>Resultado: " + resultado + "</p>");
-
+		try {
+			valor1 = Double.parseDouble(stringValor1);
+			valor2 = Double.parseDouble(stringValor2);
+			resultado = calcular(valor1, valor2, operacao);
+		} catch (NumberFormatException e) {
+			resultado = (String) "Valores inválidos. Por favor, insira números válidos.";
+		} finally {
+			request.setAttribute("title", "Calculadora");
+			request.setAttribute("resultado", "<strong>Resultado:</strong> " + resultado);
+			dispatcher.forward(request, response);
 		}
 	}
 }
