@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 2 - Exercício 2</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Conversor de Medidas</h1>
+            <h2>Aula 2 - Exercício 2</h2>
+            <hr />
+        </header>
+
+        <main>
+            <form action="IndexHandlerServlet" method="post">
+                <div>
+                    <label for="medida" class="form-label">Medida</label>
+                    <input type="text" name="medida" required />
+                </div>
+                <fieldset>
+                    <legend>Operação</legend>
+                    <div>
+                        <div>
+                            <input
+                                type="radio"
+                                name="operacao"
+                                id="milhas-quilometros"
+                                value="milhas-quilometros"
+                                required
+                            />
+                            <label for="milhas-quilometros"
+                                >Milhas &rarr; Quilômetros</label
+                            >
+                        </div>
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            name="operacao"
+                            id="quilometros-milhas"
+                            value="quilometros-milhas"
+                        />
+                        <label for="quilometros-milhas"
+                            >Quilômetros &rarr; Milhas</label
+                        >
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            name="operacao"
+                            id="pes-metros"
+                            value="pes-metros"
+                        />
+                        <label for="pes-metros">Pés &rarr; Metros</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            name="operacao"
+                            id="metros-pes"
+                            value="metros-pes"
+                        />
+                        <label for="metros-pes">Metros &rarr; Pés</label>
+                    </div>
+                </fieldset>
+                <button type="submit">Converter</button>
+            </form>
+        </main>
+    </body>
+</html>
