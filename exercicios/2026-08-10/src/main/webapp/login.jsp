@@ -6,20 +6,20 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <%@page import="javax.servlet.http.HttpSession" %>
+        <%@page import="jakarta.servlet.http.HttpSession" %>
 
         <%
             HttpSession sessao = request.getSession();
-            RequestDispatcher indexDispatcher = getServletContext().getRequestDispatcher("/cadastramento");
+            RequestDispatcher verificaLoginDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
 
             sessao.setMaxInactiveInterval(300);
 
-            if (sessao.getAttribute("usuarioLogado") == null) {
-                sessao.setAttribute("usuarioLogado", false);
+            if (sessao.getAttribute("isUsuarioLogado") == null) {
+                sessao.setAttribute("isUsuarioLogado", false);
             }
 
-            if (!sessao.isNew() && !sessao.getAttribute("usuarioLogado").equals(false)) {
-                indexDispatcher.foward(request, response);
+            if (!sessao.isNew() && !sessao.getAttribute("isUsuarioLogado").equals(false)) {
+                verificaLoginDispatcher.forward(request, response);
             }
         %>
 
@@ -43,18 +43,18 @@
 
                 <div>
                     <label class="form-label" for="usuario">Usuário</label>
-                    <input type="text" name="usuario" id="usuario">
+                    <input type="text" name="usuario" id="usuario" min=5 required>
                 </div>
 
                 <div>
                     <label class="form-label" for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha">
+                    <input type="password" name="senha" id="senha" min=5 required>
                 </div>
 
                 <%
-                    if (sessao.getAttribute("mensagemErro") != null) {
+                    if (request.getAttribute("mensagemErro") != null) {
                 %>
-                    <aside>${mensagemErro}</aside>
+                    <aside><p>${mensagemErro}</p></aside>
                 <%
                     }
                 %>

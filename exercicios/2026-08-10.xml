@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context docBase="D:\Documentos\GitHub\spolog2-linguagem-de-programacao-2\exercicios\2026-08-10">
+  <Resources cacheMaxSize="10240">
+    <PreResources base="D:/Documentos/GitHub/spolog2-linguagem-de-programacao-2/exercicios/2026-08-10/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
+    <PostResources base="C:/Users/felip/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.2.0-M2/jakarta.servlet-api-6.2.0-M2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jakarta.servlet-api-6.2.0-M2.jar"/>
+  </Resources>
+</Context>

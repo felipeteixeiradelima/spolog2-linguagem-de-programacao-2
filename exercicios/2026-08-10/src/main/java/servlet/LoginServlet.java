@@ -22,9 +22,11 @@ public class LoginServlet extends HttpServlet {
 
         Cookie[] cookies = request.getCookies();
 
-        for (Cookie cookie : cookies) {
-            cookie.setMaxAge(0);
-            response.addCookie(cookie);
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
         }
 
         indexDispatcher.forward(request, response);
@@ -36,23 +38,36 @@ public class LoginServlet extends HttpServlet {
         RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
         RequestDispatcher cadastramentoDispatcher = getServletContext().getRequestDispatcher("/cadastramento.jsp");
 
+        // 1. Usuário veio de index.html já logado
+        if (sessao.getAttribute("isUsuarioLogado").equals(true)) {
+            cadastramentoDispatcher.forward(request, response);
+            return;
+        }
+
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+
+        final String USUARIO = "admin";
+        final String SENHA = "12345";
+
         request.setAttribute("mensagemErro", null);
 
-        if (!request.getParameter("usuario").equals("usuario")) {
+        // 2. Usuário veio dessa página, com usuário e senha coretos
+        if (usuario.equals(USUARIO) && senha.equals(SENHA)) {
+            sessao.setAttribute("usuarioLogado", true);
+            cadastramentoDispatcher.forward(request, response);
+            return;
+        }
+
+        // 3. Usuário veio dessa página, com usuário incorreto
+        if (!usuario.equals(USUARIO)) {
             request.setAttribute("mensagemErro", "Usuário inválido!");
             loginDispatcher.forward(request, response);
-            System.out.println("Teste Usuario");
             return;
         }
 
-        if (!request.getParameter("senha").equals("senha")) {
-            request.setAttribute("mensagemErro", "Senha incorreta!");
-            loginDispatcher.forward(request, response);
-            System.out.println("Teste Senha");
-            return;
-        }
-
-        sessao.setAttribute("usuarioLogado", true);
-        cadastramentoDispatcher.forward(request, response);
+        // 4. Usuário veio dessa página, com senha incorreta
+        request.setAttribute("mensagemErro", "Senha incorreta!");
+        loginDispatcher.forward(request, response);
     }
 }

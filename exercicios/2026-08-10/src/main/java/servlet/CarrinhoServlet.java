@@ -16,22 +16,24 @@ public class CarrinhoServlet extends HttpServlet {
     public CarrinhoServlet() {
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher verificaLoginDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
+        RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 
-        String[] produtosSelecionadosString = request.getParameter("produtos");
+        String[] produtosSelecionadosString = request.getParameterValues("produtos");
 
         for (int i = 0; i < produtosSelecionadosString.length; i++) {
             String produtoSelecionadoString = produtosSelecionadosString[0];
             Cookie produtoSelecionadoCookie = new Cookie("produto" + i, URLEncoder.encode(produtoSelecionadoString));
             produtoSelecionadoCookie.setMaxAge(-1);
-            request.addCookie(produtoSelecionadoCookie);
+            response.addCookie(produtoSelecionadoCookie);
         }
 
-        verificaLoginDispatcher.foward(request, response);
+        loginDispatcher.forward(request, response);
     }
 }
