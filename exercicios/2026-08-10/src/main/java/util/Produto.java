@@ -1,5 +1,8 @@
 package util;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Produto {
     private String nome;
     private String descricao;
@@ -11,6 +14,15 @@ public class Produto {
         this.caminhoImagem = caminhoImagem;
         this.descricao = descricao;
         this.nome = nome;
+    }
+
+    public Produto(String inputValue) {
+        String[] atributos = inputValue.split("\\|");
+
+        if (atributos.length > 0) this.caminhoImagem = atributos[0];
+        if (atributos.length > 1) this.nome = atributos[1];
+        if (atributos.length > 2) this.descricao = atributos[2];
+        if (atributos.length > 3) this.preco = Double.parseDouble(atributos[3]);
     }
 
     public String getNome() {
@@ -39,6 +51,11 @@ public class Produto {
 
     public double getPreco() {
         return preco;
+    }
+
+    public String getPrecoFormatado() {
+        NumberFormat formatoReais = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        return formatoReais.format(this.preco);
     }
 
     public void setPreco(double preco) {

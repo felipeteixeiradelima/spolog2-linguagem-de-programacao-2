@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet("/CarrinhoServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     public LoginServlet() {
     }
