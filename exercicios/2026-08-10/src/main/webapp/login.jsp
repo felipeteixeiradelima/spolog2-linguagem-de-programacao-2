@@ -24,7 +24,7 @@
         %>
 
         <header>
-            <a href="index.html">
+            <a href="index.jsp">
                 <img
                     class="logo"
                     src="resources/logo/Marca_IFSP_2015_SPO_01.png"
@@ -43,12 +43,12 @@
 
                 <div>
                     <label class="form-label" for="usuario">Usuário</label>
-                    <input type="text" name="usuario" id="usuario" min=5 required>
+                    <input type="text" name="usuario" id="usuario" minlength="5" required>
                 </div>
 
                 <div>
                     <label class="form-label" for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" min=5 required>
+                    <input type="password" name="senha" id="senha" minlength="5" required>
                 </div>
 
                 <%

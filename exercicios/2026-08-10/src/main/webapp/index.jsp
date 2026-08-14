@@ -1,13 +1,15 @@
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>-->
 <!doctype html>
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8" />
         <title>Loja de Produtos de Informática</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
+        <%@page import="jakarta.servlet.http.HttpSession" %>
+
         <header>
-            <a href="index.html">
+            <a href="index.jsp">
                 <img
                     class="logo"
                     src="resources/logo/Marca_IFSP_2015_SPO_01.png"
@@ -18,6 +20,19 @@
                 <h1>Loja de Produtos de Informática</h1>
                 <h2>Home</h2>
             </div>
+
+            <%
+                HttpSession sessao = request.getSession();
+                Object isUsuarioLogado = sessao.getAttribute("isUsuarioLogado");
+
+                if (isUsuarioLogado != null && isUsuarioLogado.equals(true)) {
+            %>
+
+            <form method="get" action="LoginServlet">
+                <button type="submit">Sair</button>
+            </form>
+
+            <% } %>
         </header>
 
         <main>
@@ -30,6 +45,7 @@
                                 type="checkbox"
                                 name="produtos"
                                 id="qcy-h3"
+                                required
                                 value="resources/cards/qcy-h3.jpeg|Fones de Ouvido Bluetooth QCY H3 Preto|O QCY H3 ANC é um headphone over-ear sem fio de excelente custo-benefício. Ele destaca-se pelo Cancelamento Ativo de Ruído (ANC) adaptativo de até 43 dB, drivers dinâmicos de 40 mm com revestimento de titânio (certificação Hi-Res no modo com fio) e bateria com autonomia impressionante de até 60 horas.|249.90"
                             />
                             <img

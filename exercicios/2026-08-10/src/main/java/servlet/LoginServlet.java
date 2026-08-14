@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        RequestDispatcher indexDispatcher = getServletContext().getRequestDispatcher("/index.html");
+        RequestDispatcher indexDispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 
         sessao.setAttribute("usuarioLogado", false);
         sessao.invalidate();
@@ -36,11 +36,12 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession sessao = request.getSession();
         RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-        RequestDispatcher cadastramentoDispatcher = getServletContext().getRequestDispatcher("/cadastramento.jsp");
+        RequestDispatcher pedidoDispatcher = getServletContext().getRequestDispatcher("/pedido.jsp");
+        Object isUsuarioLogado = sessao.getAttribute("isUsuarioLogado");
 
-        // 1. Usuário veio de index.html já logado
-        if (sessao.getAttribute("isUsuarioLogado").equals(true)) {
-            cadastramentoDispatcher.forward(request, response);
+        // 1. Usuário veio de index.jsp já logado
+        if (isUsuarioLogado != null && isUsuarioLogado.equals(true)) {
+            pedidoDispatcher.forward(request, response);
             return;
         }
 
@@ -55,7 +56,7 @@ public class LoginServlet extends HttpServlet {
         // 2. Usuário veio dessa página, com usuário e senha coretos
         if (usuario.equals(USUARIO) && senha.equals(SENHA)) {
             sessao.setAttribute("usuarioLogado", true);
-            cadastramentoDispatcher.forward(request, response);
+            pedidoDispatcher.forward(request, response);
             return;
         }
 
