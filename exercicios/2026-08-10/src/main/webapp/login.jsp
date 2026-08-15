@@ -54,7 +54,7 @@
                 <%
                     if (request.getAttribute("mensagemErro") != null) {
                 %>
-                    <aside><p>${mensagemErro}</p></aside>
+                    <aside class="danger">${mensagemErro}</aside>
                 <%
                     }
                 %>

@@ -2,27 +2,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Login</title>
+        <title>Pedido</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <%@page import="jakarta.servlet.http.HttpSession" %>
-
-        <%
-            HttpSession sessao = request.getSession();
-            RequestDispatcher verificaLoginDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
-
-            sessao.setMaxInactiveInterval(300);
-
-            if (sessao.getAttribute("isUsuarioLogado") == null) {
-                sessao.setAttribute("isUsuarioLogado", false);
-            }
-
-            if (!sessao.isNew() && !sessao.getAttribute("isUsuarioLogado").equals(false)) {
-                verificaLoginDispatcher.forward(request, response);
-            }
-        %>
-
         <header>
             <a href="index.jsp">
                 <img
@@ -35,6 +18,19 @@
                 <h1>Loja de Produtos de Informática</h1>
                 <h2>Página de Cadastramento do Pedido</h2>
             </div>
+
+            <%
+                HttpSession sessao = request.getSession();
+                Object isUsuarioLogado = sessao.getAttribute("isUsuarioLogado");
+
+                if (isUsuarioLogado != null && isUsuarioLogado.equals(true)) {
+            %>
+
+            <form method="get" action="LoginServlet">
+                <button type="submit">Sair</button>
+            </form>
+
+            <% } %>
         </header>
 
         <main>
@@ -93,22 +89,22 @@
                 </div>
 
                 <div>
-                    <label for="forma-pagamento" class="form-label">Forma de Pagamento</label>
+                    <label for="formaPagamento" class="form-label">Forma de Pagamento</label>
                     <div>
                         <input
                             type="radio"
-                            name="forma-pagamento"
-                            id="cartao-credito"
+                            name="formaPagamento"
+                            id="cartaoCredito"
                             value="Cartão de Crédito"
                             checked
                             required
                         />
-                        <label for="cartao-credito">Cartão de Crédito</label>
-                        <input type="radio" name="forma-pagamento" id="pix" value="PIX" required />
+                        <label for="cartaoCredito">Cartão de Crédito</label>
+                        <input type="radio" name="formaPagamento" id="pix" value="PIX" required />
                         <label for="pix">PIX</label>
                         <input
                             type="radio"
-                            name="forma-pagamento"
+                            name="formaPagamento"
                             id="boleto"
                             value="Boleto Bancário"
                             required
@@ -120,12 +116,13 @@
                 <div>
                     <label for="parcelamento" class="form-label">Parcelamento</label>
                     <select name="parcelamento" id="parcelamento" required>
-                        <option value="1 x "></option>
-                        <option value="2 x "></option>
-                        <option value="3 x "></option>
+                        <option value="1 x ${precoTotalFormatado}">1 x ${precoTotalFormatado}</option>
+                        <option value="2 x ${precoDuasParcelasFormatado}">2 x ${precoDuasParcelasFormatado}</option>
+                        <option value="3 x ${precoTreParcelasFormatado}">3 x ${precoTreParcelasFormatado}</option>
                     </select>
                 </div>
                 <button type="submit">Finalizar Compra</button>
+                <input type="hidden" name="precoTotalFormatado" value="${precoTotalFormatado}">
             </form>
         </main>
 

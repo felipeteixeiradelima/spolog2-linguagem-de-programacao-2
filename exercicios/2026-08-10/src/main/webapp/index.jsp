@@ -45,7 +45,6 @@
                                 type="checkbox"
                                 name="produtos"
                                 id="qcy-h3"
-                                required
                                 value="resources/cards/qcy-h3.jpeg|Fones de Ouvido Bluetooth QCY H3 Preto|O QCY H3 ANC é um headphone over-ear sem fio de excelente custo-benefício. Ele destaca-se pelo Cancelamento Ativo de Ruído (ANC) adaptativo de até 43 dB, drivers dinâmicos de 40 mm com revestimento de titânio (certificação Hi-Res no modo com fio) e bateria com autonomia impressionante de até 60 horas.|249.90"
                             />
                             <img
@@ -153,5 +152,27 @@
         <footer>
             <p>Felipe Teixeira de Lima &copy; 2026</p>
         </footer>
+
+        <script>
+            // Script que obriga o usuário a selecionar pelo menos 1 item para fechar o carrinho
+
+            const checkboxes = Array.from(document.querySelectorAll('input[name="produtos"]'));
+
+            function enforceAtLeastOneChecked() {
+                const anyChecked = checkboxes.some(cb => cb.checked);
+
+                checkboxes.forEach(cb => {
+                    cb.required = !anyChecked;
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                enforceAtLeastOneChecked();
+
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', enforceAtLeastOneChecked);
+                });
+            });
+        </script>
     </body>
 </html>
