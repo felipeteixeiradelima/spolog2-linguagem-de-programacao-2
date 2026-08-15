@@ -4,6 +4,7 @@
     <head>
         <title>Resultado</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" type="image/jpg" href="resources/logo/Marca_IFSP_2015_Simpl_V_1.jpg">
     </head>
     <body>
         <%@page import="java.util.ArrayList" %>
