@@ -1,0 +1,316 @@
+/* CSS feito com auxílio de IA */
+
+:root {
+    --ifsp-green: #005b3a;
+    --ifsp-light-green: #79b473;
+    --ifsp-red: #ca1f28;
+    --ifsp-white: #ffffff;
+    --ifsp-slate: #2f3a3a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--ifsp-slate);
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: var(--ifsp-green);
+    color: var(--ifsp-white);
+    padding: 1.3rem 1.5rem;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.9rem;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+h3 {
+    color: var(--ifsp-green);
+    margin: 0.5rem 0;
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.resultado {
+    background: var(--ifsp-white);
+    border: 2px solid var(--ifsp-green);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-form {
+    background: var(--ifsp-white);
+    border: 2px solid var(--ifsp-green);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    margin: 4rem 14rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.pedido-form {
+    background: var(--ifsp-white);
+    border: 2px solid var(--ifsp-green);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    margin: 4rem 14rem;
+    justify-content: center;
+}
+
+fieldset {
+    border: 1px solid var(--ifsp-light-green);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 0 1.25rem;
+}
+
+legend {
+    color: var(--ifsp-red);
+    font-weight: 700;
+    padding: 0 0.5rem;
+}
+
+label.form-label {
+    display: block;
+    margin-left: 0.45rem;
+    margin-bottom: 0.25rem;
+    color: var(--ifsp-red);
+    font-weight: 700;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--ifsp-light-green);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+input[type="checkbox"] {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--ifsp-light-green);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+aside {
+    color: var(--ifsp-white);
+    background-color: var(--ifsp-slate);
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 9px;
+    text-align: center;
+}
+
+div {
+    margin: 0.8rem 0;
+}
+
+button {
+    background: var(--ifsp-red);
+    color: var(--ifsp-white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 1.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    margin: 0.5em;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+strong {
+    color: var(--ifsp-red);
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: var(--ifsp-white);
+    border: 1px solid gray;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    margin: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.card:active {
+    transform: scale(0.99);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0.5rem;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    background: var(--ifsp-white);
+    border: 2px solid var(--ifsp-green);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-description {
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+.card-image {
+    max-width: 15%;
+    margin: 0.5rem;
+    border: 1px solid #E0E0E2;
+    border-radius: 14px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    margin: 4rem 14rem;
+    align-items: end;
+    justify-content: center;
+}
+
+img {
+    max-height: 100%;
+    margin: auto 20px 20px;
+}
+
+.logo {
+    margin-right: auto;
+    max-height: 128px;
+}
+
+.header-title {
+    margin: auto;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--ifsp-red);
+    color: var(--ifsp-white);
+    padding: 1.3rem 1.5rem;
+    margin-top: auto;
+}
+
+.table-image {
+    max-width: 70%;
+    margin: 0.2rem;
+}
+
+.tabela-produtos-resultado {
+    border-collapse: collapse;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.tabela-produtos-resultado thead th {
+    background-color: var(--ifsp-red);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabela-produtos-resultado td {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+section.resultado {
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    margin: 0 14rem 4rem 14rem;
+}
+
+section.informacoes-resultado {
+    background: var(--ifsp-white);
+    border: 2px solid var(--ifsp-green);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.sucess {
+    background-color: var(--ifsp-light-green);
+    color: #00472e;
+}
+
+.danger {
+    background-color: #f8a8a8;
+    color: darkred;
+}
