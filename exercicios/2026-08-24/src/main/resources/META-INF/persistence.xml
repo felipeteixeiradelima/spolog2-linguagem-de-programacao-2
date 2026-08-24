@@ -17,13 +17,13 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.user" value="estudante1"/>
             <property name="jakarta.persistence.jdbc.password" value="estudante1"/>
-            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/dadosIniciais.sql"/>
+<!--            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/dadosIniciais.sql"/>-->
 
             <!-- Hibernate Specific Framework Settings -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            <property name="hibernate.format_sql" value="true"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>
