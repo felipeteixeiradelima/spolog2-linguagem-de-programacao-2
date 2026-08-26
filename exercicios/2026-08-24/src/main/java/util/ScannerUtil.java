@@ -34,11 +34,11 @@ public class ScannerUtil {
         Character sexo = null;
         String input;
         do {
-            input = getUserInput("SEXO (Digite 'm' ou 'f'): ");
+            input = getUserInput("SEXO (Digite 'M' ou 'F'): ");
             if (input.length() == 0) continue;
 
-            sexo = Character.toLowerCase(input.charAt(0));
-        } while (sexo == null || !(sexo.equals('m') || sexo.equals('f')));
+            sexo = Character.toUpperCase(input.charAt(0));
+        } while (sexo == null || !(sexo.equals('M') || sexo.equals('F')));
         return sexo;
     }
 
@@ -48,13 +48,13 @@ public class ScannerUtil {
         char primeiroCaractere;
 
         do {
-            input = getUserInput("PCD  (Digite 's' ou 'n'): ");
+            input = getUserInput("PCD  (Digite 'S' ou 'N'): ");
             if (input.length() == 0) continue;
 
-            primeiroCaractere = Character.toLowerCase(input.charAt(0));
+            primeiroCaractere = Character.toUpperCase(input.charAt(0));
             pcd = switch (primeiroCaractere) {
-                case 's', '1' -> true;
-                case 'n', '0' -> false;
+                case 'S', '1' -> true;
+                case 'N', '0' -> false;
                 default -> pcd;
             };
         } while (pcd == null);
