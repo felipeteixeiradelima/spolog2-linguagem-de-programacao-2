@@ -26,6 +26,8 @@ public class ConsultaEstudantes {
             System.out.println();
 
             switch (opcao) {
+                case 0:
+                    break;
                 case 1:
                     AlteraEstudante.exibeInterface();
                     break;
