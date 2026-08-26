@@ -48,4 +48,16 @@ public class EstudanteController {
 
         transaction.commit();
     }
+
+    public void excluiEstudante(Long id) {
+        transaction.begin();
+        Estudante estudante = manager.find(Estudante.class, id);
+        manager.remove(estudante);
+        transaction.commit();
+    }
+
+    public void finalizaEntityManager() {
+        manager.close();
+        JpaUtil.close();
+    }
 }
