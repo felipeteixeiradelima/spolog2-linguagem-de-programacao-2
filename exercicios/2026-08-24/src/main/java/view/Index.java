@@ -12,7 +12,7 @@ public class Index {
         Scanner entrada = new Scanner(System.in);
 
         do {
-            System.out.println("CADASTRO DE LIVROS:");
+            System.out.println("CADASTRO DE ESTUDANTES:");
             System.out.println("1) Inserir");
             System.out.println("2) Consultar");
             System.out.println("3) Consultar por Id");
