@@ -23,6 +23,10 @@ public class Estudante {
     @Column(precision = 3, scale = 1)
     private BigDecimal ira;
 
+    public Estudante() {
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
