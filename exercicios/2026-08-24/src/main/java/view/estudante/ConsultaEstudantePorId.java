@@ -4,10 +4,8 @@ import controller.EstudanteController;
 import model.Estudante;
 import util.ScannerUtil;
 
-import java.util.Scanner;
 
 public class ConsultaEstudantePorId {
-    static Scanner scanner = new Scanner(System.in);
 
     public static void exibeInterface() {
         Long id;
