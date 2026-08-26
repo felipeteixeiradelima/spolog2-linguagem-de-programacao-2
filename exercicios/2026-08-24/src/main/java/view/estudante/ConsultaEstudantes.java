@@ -42,7 +42,7 @@ public class ConsultaEstudantes {
     }
 
     public static void exibeInterface() {
-        String formato = "%1$-3s %2$-30s %3$-6s %4$-6s %5$-6s%n";
+        String formato = "%1$-3s %2$-50s %3$-6s %4$-6s %5$-6s%n";
 
         System.out.println("\nCONSULTA DE ESTUDANTES:");
         System.out.printf(formato, "ID", " | NOME", " | SEXO", " | PDC", " | IRA");
