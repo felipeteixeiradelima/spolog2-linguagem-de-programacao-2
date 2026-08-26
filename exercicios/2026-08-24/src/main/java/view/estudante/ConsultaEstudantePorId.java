@@ -2,6 +2,7 @@ package view.estudante;
 
 import controller.EstudanteController;
 import model.Estudante;
+import util.ScannerUtil;
 
 import java.util.Scanner;
 
@@ -13,8 +14,7 @@ public class ConsultaEstudantePorId {
         String formato = "%1$-2s %2$-25s %3$-6s %4$-7s% %5$-7s%n";
 
         System.out.println("\nCONSULTA DE ESTUDANTE POR ID:");
-        System.out.println("Informe o ID do Estudante:");
-        id = Long.parseLong(scanner.nextLine());
+        id = ScannerUtil.extractId();
 
         Estudante estudante = new EstudanteController().consultaEstudantePorId(id);
 
