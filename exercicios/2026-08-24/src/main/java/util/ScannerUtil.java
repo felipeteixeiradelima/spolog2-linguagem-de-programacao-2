@@ -31,10 +31,14 @@ public class ScannerUtil {
     }
 
     public static Character extractSexo() {
-        Character sexo;
+        Character sexo = null;
+        String input;
         do {
-            sexo = Character.toLowerCase(getUserInput("SEXO (Digite 'm' ou 'f'): ").charAt(0));
-        } while (sexo == null || !(sexo.equals('M') || sexo.equals('F')));
+            input = getUserInput("SEXO (Digite 'm' ou 'f'): ");
+            if (input.length() == 0) continue;
+
+            sexo = Character.toLowerCase(input.charAt(0));
+        } while (sexo == null || !(sexo.equals('m') || sexo.equals('f')));
         return sexo;
     }
 
@@ -45,6 +49,8 @@ public class ScannerUtil {
 
         do {
             input = getUserInput("PCD  (Digite 's' ou 'n'): ");
+            if (input.length() == 0) continue;
+
             primeiroCaractere = Character.toLowerCase(input.charAt(0));
             pcd = switch (primeiroCaractere) {
                 case 's', '1' -> true;
@@ -65,7 +71,7 @@ public class ScannerUtil {
             input = getUserInput("IRA  (Digite valor entre 0 e 10): ");
             try {
                 ira = new BigDecimal(input.replace(',', '.'));
-                isMaiorQueZero = ira.compareTo(BigDecimal.ZERO) > 0;
+                isMaiorQueZero = ira.compareTo(BigDecimal.ZERO) >= 0;
                 isMenorOuIgualADez = ira.compareTo(BigDecimal.TEN) <= 0;
             } catch (Exception ignored) {
             }
