@@ -1,13 +1,9 @@
 package view;
 
-import java.util.Scanner;
+import controller.EstudanteController;
+import view.estudante.*;
 
-import controller.LivroController;
-import view.livro.AlteraLivro;
-import view.livro.ConsultaLivroPorId;
-import view.livro.ConsultaLivros;
-import view.livro.ExcluiLivro;
-import view.livro.InsereLivro;
+import java.util.Scanner;
 
 public class Index {
     public static void main(String[] args) {
@@ -28,25 +24,24 @@ public class Index {
 
             switch (opcao) {
                 case 1:
-                    InsereLivro.exibeInterface();
+                    InsereEstudante.exibeInterface();
                     break;
                 case 2:
-                    ConsultaLivros.exibeInterface();
+                    ConsultaEstudantes.exibeInterface();
                     break;
                 case 3:
-                    ConsultaLivroPorId.exibeInterface();
+                    ConsultaEstudantePorId.exibeInterface();
                     break;
                 case 4:
-                    AlteraLivro.exibeInterface();
+                    AlteraEstudante.exibeInterface();
                     break;
                 case 5:
-                    ExcluiLivro.exibeInterface();
+                    ExcluiEstudante.exibeInterface();
                     break;
                 default:
-                    if (opcao != 0)
-                        System.out.println("Digite uma opção válida.");
+                    if (opcao != 0) System.out.println("Digite uma opção válida.");
                     else {
-                        new LivroController().finalizaEntityManager();
+                        new EstudanteController().finalizaEntityManager();
                         System.out.println("Programa encerrado.");
                     }
                     break;
