@@ -21,7 +21,12 @@ public class AlteraEstudante {
         pcd = ScannerUtil.extractPcd();
         ira = ScannerUtil.extractIra();
 
-        new EstudanteController().alteraEstudante(id, nome, sexo, pcd, ira);
+        boolean sucesso = new EstudanteController().alteraEstudante(id, nome, sexo, pcd, ira);
+
+        if (!sucesso) {
+            System.out.println("Falha ao alterar estudante. Verifique o ID digitado.\n");
+            return;
+        }
 
         System.out.println("Estudante alterado com sucesso.\n");
     }

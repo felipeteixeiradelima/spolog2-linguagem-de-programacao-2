@@ -11,7 +11,12 @@ public class ExcluiEstudante {
 
         id = ScannerUtil.extractId();
 
-        new EstudanteController().excluiEstudante(id);
+        boolean sucesso = new EstudanteController().excluiEstudante(id);
+
+        if (!sucesso) {
+            System.out.println("Falha ao excluir estudante. Verifique o ID digitado.\n");
+            return;
+        }
 
         System.out.println("Estudante excluído com sucesso.\n");
     }

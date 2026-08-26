@@ -14,7 +14,7 @@ public class ConsultaEstudantes {
         System.out.println("ALTERAÇÃO / EXCLUSÃO DE ESTUDANTE");
         System.out.println("1) Alterar");
         System.out.println("2) Excluir");
-        System.out.println("Digite uma opção (0 para voltar): ");
+        System.out.print("Digite uma opção (0 para voltar): ");
 
         do {
             try {

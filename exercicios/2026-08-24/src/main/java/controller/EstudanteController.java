@@ -34,11 +34,11 @@ public class EstudanteController {
         return manager.find(Estudante.class, id);
     }
 
-    public void alteraEstudante(Long id, String nome, Character sexo, Boolean pcd, BigDecimal ira) {
+    public boolean alteraEstudante(Long id, String nome, Character sexo, Boolean pcd, BigDecimal ira) {
         transaction.begin();
 
         Estudante estudante = manager.find(Estudante.class, id);
-        if (estudante == null) return;
+        if (estudante == null) return false;
 
         estudante.setNome(nome);
         estudante.setSexo(sexo);
@@ -46,13 +46,20 @@ public class EstudanteController {
         estudante.setIra(ira);
 
         transaction.commit();
+
+        return true;
     }
 
-    public void excluiEstudante(Long id) {
+    public boolean excluiEstudante(Long id) {
         transaction.begin();
+
         Estudante estudante = manager.find(Estudante.class, id);
+        if (estudante == null) return false;
+
         manager.remove(estudante);
         transaction.commit();
+
+        return true;
     }
 
     public void finalizaEntityManager() {
