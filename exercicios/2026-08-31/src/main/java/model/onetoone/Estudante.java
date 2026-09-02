@@ -1,4 +1,4 @@
-package model;
+package model.onetoone;
 
 import jakarta.persistence.*;
 
@@ -23,8 +23,18 @@ public class Estudante {
     @Column(precision = 3, scale = 1)
     private BigDecimal ira;
 
-    public Estudante() {
+    @OneToOne
+    @JoinColumn(name = "id_curso")
+    private Curso curso;
 
+    public Estudante() {
+    }
+
+    public Estudante(String nome, Character sexo, Boolean pcd, BigDecimal ira) {
+        this.nome = nome;
+        this.sexo = sexo;
+        this.pcd = pcd;
+        this.ira = ira;
     }
 
     @Override
@@ -37,13 +47,6 @@ public class Estudante {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
-    }
-
-    public Estudante(String nome, Character sexo, Boolean pcd, BigDecimal ira) {
-        this.nome = nome;
-        this.sexo = sexo;
-        this.pcd = pcd;
-        this.ira = ira;
     }
 
     public Long getId() {
@@ -80,5 +83,13 @@ public class Estudante {
 
     public void setIra(BigDecimal ira) {
         this.ira = ira;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

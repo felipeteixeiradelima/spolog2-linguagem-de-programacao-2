@@ -8,7 +8,7 @@
     <persistence-unit name="EstudantesPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>model.Estudante</class>
+        <class>model.onetoone.Estudante</class>
 
         <properties>
             <!-- Database Connection Settings -->
