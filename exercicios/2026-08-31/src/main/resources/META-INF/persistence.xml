@@ -8,7 +8,18 @@
     <persistence-unit name="EstudantesPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>model.onetoone.Estudante</class>
+<!--        <class>model.onetoone.Estudante</class>-->
+<!--        <class>model.onetoone.Curso</class>-->
+<!--        <class>model.onetoonebidirecional.Estudante</class>-->
+<!--        <class>model.onetoonebidirecional.Curso</class>-->
+<!--        <class>model.manytoone.Estudante</class>-->
+<!--        <class>model.manytoone.Curso</class>-->
+<!--        <class>model.manytoonebidirecional.Estudante</class>-->
+<!--        <class>model.manytoonebidirecional.Curso</class>-->
+<!--        <class>model.manytomany.Estudante</class>-->
+<!--        <class>model.manytomany.Curso</class>-->
+        <class>model.manytomanybidirecional.Estudante</class>
+        <class>model.manytomanybidirecional.Curso</class>
 
         <properties>
             <!-- Database Connection Settings -->
@@ -21,9 +32,9 @@
 
             <!-- Hibernate Specific Framework Settings -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-<!--            <property name="hibernate.show_sql" value="true"/>-->
-<!--            <property name="hibernate.format_sql" value="true"/>-->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

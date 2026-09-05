@@ -1,3 +1,5 @@
-INSERT INTO estudante (nome, sexo, pcd, ira) VALUES ('Felipe Teixeira de Lima', 'M', TRUE, 8.7);
-INSERT INTO estudante (nome, sexo, pcd, ira) VALUES ('Luiz Otávio de Lima Rodrigues', 'M', FALSE, 8.5);
-INSERT INTO estudante (nome, sexo, pcd, ira) VALUES ('Mariana Calvao Weng', 'F', FALSE, 8.9);
+INSERT INTO curso (descricao, cargaHoraria) VALUES ("Biologia", 3800);
+INSERT INTO curso (descricao, cargaHoraria) VALUES ("Engenharia da Computação", 4500);
+
+INSERT INTO estudante (nome, sexo, pcd, ira, id_curso) VALUES ('Isabela Teixeira de Lima', 'F', FALSE, 8, 1);
+INSERT INTO estudante (nome, sexo, pcd, ira, id_curso) VALUES ('Yasmin Monteiro Marques', 'F', FALSE, 9.7, 2);
