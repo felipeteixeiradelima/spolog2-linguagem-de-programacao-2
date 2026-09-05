@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee
+                                 https://jakarta.ee/xml/ns/persistence"
+             version="3.0">
+
+    <persistence-unit name="EstudantesPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+<!--        <class>model.onetoone.Estudante</class>-->
+<!--        <class>model.onetoone.Curso</class>-->
+<!--        <class>model.onetoonebidirecional.Estudante</class>-->
+<!--        <class>model.onetoonebidirecional.Curso</class>-->
+<!--        <class>model.manytoone.Estudante</class>-->
+<!--        <class>model.manytoone.Curso</class>-->
+<!--        <class>model.manytoonebidirecional.Estudante</class>-->
+<!--        <class>model.manytoonebidirecional.Curso</class>-->
+<!--        <class>model.manytomany.Estudante</class>-->
+<!--        <class>model.manytomany.Curso</class>-->
+        <class>model.manytomanybidirecional.Estudante</class>
+        <class>model.manytomanybidirecional.Curso</class>
+
+        <properties>
+            <!-- Database Connection Settings -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/schema_estudantes?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.user" value="estudante1"/>
+            <property name="jakarta.persistence.jdbc.password" value="estudante1"/>
+<!--            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/dadosIniciais.sql"/>-->
+
+            <!-- Hibernate Specific Framework Settings -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
