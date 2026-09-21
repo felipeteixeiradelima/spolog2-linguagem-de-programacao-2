@@ -42,7 +42,7 @@
       	out.println("<td>" + estudante.getNome() + "</td>");
       	out.println("<td>" + estudante.getSexo() + "</td>");
       	out.println("<td><div class='d-flex justify-content-center'>" + (estudante.getPcd() ? "Sim" : "Não") + "</div></td>");
-      	out.println("<td><div class='d-flex justify-content-center'>" + df.format(estudante.getIra()) + "</div></td>");
+      	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getIra().toString().replace(".", ",") + "</div></td>");
 
         // Botão Alterar
         out.println("<td><div class='d-flex justify-content-center'><form action='estudante/operacao/alteracao.jsp' method='post'>");

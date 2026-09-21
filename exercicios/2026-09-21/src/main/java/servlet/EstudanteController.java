@@ -29,7 +29,7 @@ public class EstudanteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("Estudantes", consultaEstudantes());
+        request.setAttribute("estudantes", consultaEstudantes());
         destino = getServletContext().getRequestDispatcher("/estudante/resultado/consulta.jsp");
         destino.forward(request, response);
     }
@@ -38,7 +38,7 @@ public class EstudanteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = 0L;
         String nome = request.getParameter("txNome");
-        Character sexo = request.getParameter("txSexo").charAt(0);
+        Character sexo = request.getParameter("rdSexo").charAt(0);
         Boolean pcd = true;
         BigDecimal ira = null;
 

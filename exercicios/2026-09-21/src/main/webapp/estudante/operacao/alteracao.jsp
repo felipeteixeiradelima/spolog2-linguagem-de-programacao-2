@@ -5,7 +5,7 @@
 <title>Alteração de Estudante</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../webjars/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -19,7 +19,7 @@
     <h4>Alteração de Estudante</h4>
   </div>
   <div class="px-4">
-    <form action="../EstudanteController?op=alteracao" method="post">
+    <form action="../../EstudanteController?op=alteracao" method="post">
         <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
         <p>Nome <input type="text" name="txNome" size="50" value=${param.tdNome} required></p>
       <%
