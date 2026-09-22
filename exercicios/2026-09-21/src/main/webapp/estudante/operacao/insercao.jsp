@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <title>Cadastro de Estudante</title>
 <meta charset="UTF-8">
@@ -10,8 +10,8 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <ul class="navbar-nav align-items-center">
-      <li><a href="../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
-      <li><a href="../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
+      <li><a href="../../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
+      <li><a href="../../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
       <li><a href="#" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
@@ -28,12 +28,14 @@
           <input type="radio" name="rdSexo" id="feminino" value="F">
           <label for="feminino">Feminino</label>
       </p>
-      <input type="checkbox" name="ckPcd">
-	  <label for="ckPcd">PDC</label>
+      <p>
+        <input type="checkbox" name="ckPcd" id="ckPcd">
+	    <label for="ckPcd">PDC</label>
+	  </p>
       <p>IRA <input type="text" name="txIra" size="5"></p>
       <div class="pt-3">
         <input type="submit" name="btInserir" value="Inserir" class="btn btn-success">
-        <a href="../EstudanteController" class="btn btn-danger">Cancelar</a>
+        <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>
       </div>
     </form>
   </div>

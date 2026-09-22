@@ -11,8 +11,8 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <ul class="navbar-nav align-items-center">
-      <li><a href="../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
-      <li><a href="../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
+      <li><a href="../../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
+      <li><a href="../../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
       <li><a href="#" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
@@ -38,7 +38,7 @@
     <%
     out.println("<p class='my-0'><b>Id:</b> " + request.getParameter("tdId") + "</p>");
     out.println("<p class='my-0'><b>Nome:</b> " + request.getParameter("tdNome") + "</p>");
-    out.println("<p class='my-0'><b>IRA:</b> " + request.getParameter("tdIra").replace(".", ",") + "'></p>") + "</p>");
+    out.println("<p class='my-0'><b>IRA:</b> " + request.getParameter("tdIra").replace(".", ",") + "'></p>");
     out.println("<p class='my-0'><b>Disponível:</b> " + request.getParameter("tdPcd") + "</p>");
     %>
     -->
@@ -51,7 +51,7 @@
       -->
       <div class="pt-3">
         <input type="submit" name="btExcluir" value="Excluir" class="btn btn-success">
-        <a href="../EstudanteController" class="btn btn-danger">Cancelar</a>
+        <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>
       </div>
     </form>
   </div>

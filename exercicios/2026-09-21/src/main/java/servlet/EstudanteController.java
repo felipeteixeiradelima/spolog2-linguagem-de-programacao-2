@@ -38,7 +38,7 @@ public class EstudanteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = 0L;
         String nome = request.getParameter("txNome");
-        Character sexo = request.getParameter("rdSexo").charAt(0);
+        Character sexo = 'X';
         Boolean pcd = true;
         BigDecimal ira = null;
 
@@ -47,6 +47,8 @@ public class EstudanteController extends HttpServlet {
                 id = Long.parseLong(request.getParameter("txId"));
 
             if (request.getParameter("op").equals("insercao") || request.getParameter("op").equals("alteracao")) {
+                String sexoBruto = request.getParameter("rdSexo");
+                if (sexoBruto != null && !sexoBruto.isEmpty()) sexo = sexoBruto.charAt(0);
                 if (request.getParameter("ckPcd") == null) pcd = false;
                 if (!(request.getParameter("txIra") == (null)))
                     ira = new BigDecimal(request.getParameter("txIra").replace(",", "."));

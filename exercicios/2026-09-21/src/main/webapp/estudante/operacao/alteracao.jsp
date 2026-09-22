@@ -10,8 +10,8 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <ul class="navbar-nav align-items-center">
-      <li><a href="../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
-      <li><a href="../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
+      <li><a href="../../index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
+      <li><a href="../../EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
       <li><a href="#" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
@@ -20,16 +20,40 @@
   </div>
   <div class="px-4">
     <form action="../../EstudanteController?op=alteracao" method="post">
-        <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
-        <p>Nome <input type="text" name="txNome" size="50" value=${param.tdNome} required></p>
+      <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
+      <p>Nome <input type="text" name="txNome" size="50" value=${param.tdNome} required></p>
+      <p>
+        Sexo
+        <%
+          String sexoBruto = request.getParameter("tdSexo");
+          char sexo = 'X';
+          boolean checkedMasculino = false;
+          boolean checkedFeminino = false;
+
+          if (sexoBruto != null & !sexoBruto.isEmpty()) {
+              sexo = sexoBruto.charAt(0);
+          }
+
+          if (sexo == 'M') checkedMasculino = true;
+          else if (sexo == 'F') checkedFeminino = true;
+
+          out.println("<input type='radio' name='rdSexo' id='masculino' value='M'" + (checkedMasculino ? "checked" : "") + ">");
+          out.println("<label for='masculino'>Masculino</label>");
+          out.println("<input type='radio' name='rdSexo' id='feminino' value='F'" + (checkedFeminino ? "checked" : "") + ">");
+          out.println("<label for='feminino'>Feminino</label>");
+        %>
+      </p>
+      <p>
+        <input type="checkbox" name="ckPcd" id="ckPcd" ${param.tdPcd ? "checked" : "teste"}>
+        <label for="ckPcd">PCD</label>
+      </p>
       <%
         out.println("<p>IRA <input type='text' name='txIra' size='20' value='" + request.getParameter("tdIra").
                     replace(".", ",") + "'></p>");
       %>
-        <input type="checkbox" name="ckPcd" ${param.tdPcd ? "checked" : ""}>
       <div class="pt-3">
         <input type="submit" name="btAlterar" value="Alterar" class="btn btn-success">
-        <a href="../EstudanteController" class="btn btn-danger">Cancelar</a>
+        <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>
       </div>
     </form>
   </div>

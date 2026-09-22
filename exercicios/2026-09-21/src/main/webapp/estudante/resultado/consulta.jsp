@@ -49,17 +49,17 @@
       	out.println("<input type='hidden' name='tdId' value='" + estudante.getId() + "'>");
       	out.println("<input type='hidden' name='tdNome' value='" + estudante.getNome() + "'>");
       	out.println("<input type='hidden' name='tdSexo' value='" + estudante.getSexo() + "'>");
-      	out.println("<input type='hidden' name='tdPcd' value='" + (estudante.getPcd() ? "Sim" : "Não") + "'>");
+      	out.println("<input type='hidden' name='tdPcd' value='" + estudante.getPcd() + "'>");
       	out.println("<input type='hidden' name='tdIra' value='" + estudante.getIra() + "'>");
       	out.println("<input type='submit' name='btAlterar' value='Alterar' class='btn btn-success px-3 py-0'>");
       	out.println("</form></div></td>");
-        
+
         // Botão Excluir
       	out.println("<td><div class='d-flex justify-content-center'><form action='estudante/operacao/exclusao.jsp' method='post'>");
       	out.println("<input type='hidden' name='tdId' value='" + estudante.getId() + "'>");
       	out.println("<input type='hidden' name='tdNome' value='" + estudante.getNome() + "'>");
       	out.println("<input type='hidden' name='tdSexo' value='" + estudante.getSexo() + "'>");
-      	out.println("<input type='hidden' name='tdPcd' value='" + (estudante.getPcd() ? "Sim" : "Não") + "'>");
+      	out.println("<input type='hidden' name='tdPcd' value='" + estudante.getPcd() + "'>");
       	out.println("<input type='hidden' name='tdIra' value='" + estudante.getIra() + "'>");
       	out.println("<input type='submit' name='btExcluir' value='Excluir' class='btn btn-success px-3 py-0'>");
       	out.println("</form></div></td>");
