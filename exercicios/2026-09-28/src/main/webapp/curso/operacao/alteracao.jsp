@@ -20,9 +20,9 @@
   </div>
   <div class="px-4">
     <form action="../../CursoController?op=alteracao" method="post">
-      <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
-      <p>Descrição <input type="text" name="txDescricao" size="50" value=${param.tdDescricao}></p>
-      <p>Carga Horária <input type="number" name="txCargaHoraria" size="50" value=${param.tdCargaHoraria} min="0" step="1"></p>
+      <p>Id <input type="text" name="txId" size="10" value="${param.tdId}" readonly></p>
+      <p>Descrição <input type="text" name="txDescricao" size="50" value="${param.tdDescricao}"></p>
+      <p>Carga Horária <input type="number" name="txCargaHoraria" size="50" value="${param.tdCargaHoraria}" min="0" step="1"></p>
       <div class="pt-3">
         <input type="submit" name="btAlterar" value="Alterar" class="btn btn-success">
         <a href="../../CursoController" class="btn btn-danger">Cancelar</a>

@@ -20,8 +20,8 @@
   </div>
   <div class="px-4">
     <form action="../../EstudanteController?op=alteracao" method="post">
-      <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
-      <p>Nome <input type="text" name="txNome" size="50" value=${param.tdNome} required></p>
+      <p>Id <input type="text" name="txId" size="10" value="${param.tdId}" readonly></p>
+      <p>Nome <input type="text" name="txNome" size="50" value="${param.tdNome}" required></p>
       <p>
         Sexo
         <%
@@ -44,7 +44,7 @@
         %>
       </p>
       <p>
-        <input type="checkbox" name="ckPcd" id="ckPcd" ${param.tdPcd ? "checked" : "teste"}>
+        <input type="checkbox" name="ckPcd" id="ckPcd" ${param.tdPcd ? "checked" : ""}>
         <label for="ckPcd">PCD</label>
       </p>
       <%

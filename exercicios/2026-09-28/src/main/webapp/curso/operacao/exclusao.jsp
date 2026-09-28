@@ -25,7 +25,7 @@
     <p class="my-0"><b>Descrição: </b> ${param.tdDescricao}</p>
     <p class="my-0"><b>Carga Horária: </b> ${param.tdCargaHoraria}</p>
     <form action="../../CursoController?op=exclusao" method="post">
-      <input type="hidden" name="txId" value=${param.tdId}>
+      <input type="hidden" name="txId" value="${param.tdId}">
       <div class="pt-3">
         <input type="submit" name="btExcluir" value="Excluir" class="btn btn-success">
         <a href="../../CursoController" class="btn btn-danger">Cancelar</a>
