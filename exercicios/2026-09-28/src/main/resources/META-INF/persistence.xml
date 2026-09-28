@@ -9,6 +9,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>model.Estudante</class>
+        <class>model.Curso</class>
 
         <properties>
             <!-- Database Connection Settings -->

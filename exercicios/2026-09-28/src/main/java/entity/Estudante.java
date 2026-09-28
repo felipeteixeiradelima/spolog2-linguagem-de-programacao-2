@@ -24,6 +24,10 @@ public class Estudante {
     @Column(precision = 3, scale = 1)
     private BigDecimal ira;
 
+    @ManyToOne
+    @JoinColumn(name = "id_curso")
+    private Curso curso;
+
     public Estudante() {
     }
 
@@ -80,5 +84,13 @@ public class Estudante {
 
     public void setIra(BigDecimal ira) {
         this.ira = ira;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }
