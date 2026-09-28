@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-<title>Cadastro de Estudante</title>
+<title>Alteração de Curso</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -16,26 +16,16 @@
     </ul>
   </nav>
   <div class="py-3 px-4">
-    <h4>Cadastro de Estudante</h4>
+    <h4>Alteração de Curso</h4>
   </div>
   <div class="px-4">
-    <form action="../../EstudanteController?op=insercao" method="post">
-      <p>Nome <input type="text" name="txNome" size="50" required></p>
-      <p>
-          Sexo
-          <input type="radio" name="rdSexo" id="masculino" value="M">
-          <label for="masculino">Masculino</label>
-          <input type="radio" name="rdSexo" id="feminino" value="F">
-          <label for="feminino">Feminino</label>
-      </p>
-      <p>
-        <input type="checkbox" name="ckPcd" id="ckPcd">
-	    <label for="ckPcd">PDC</label>
-	  </p>
-      <p>IRA <input type="text" name="txIra" size="5"></p>
+    <form action="../../CursoController?op=alteracao" method="post">
+      <p>Id <input type="text" name="txId" size="10" value=${param.tdId} readonly></p>
+      <p>Descrição <input type="text" name="txDescricao" size="50" value=${param.tdDescricao}></p>
+      <p>Carga Horária <input type="number" name="txCargaHoraria" size="50" value=${param.tdCargaHoraria} min="0" step="1"></p>
       <div class="pt-3">
-        <input type="submit" name="btInserir" value="Inserir" class="btn btn-success">
-        <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>
+        <input type="submit" name="btAlterar" value="Alterar" class="btn btn-success">
+        <a href="../../CursoController" class="btn btn-danger">Cancelar</a>
       </div>
     </form>
   </div>

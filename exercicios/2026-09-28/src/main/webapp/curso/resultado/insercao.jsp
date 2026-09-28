@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cadastro de Estudante</title>
+<title>Cadastro de Curso</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -16,20 +16,20 @@
     </ul>
   </nav>
   <div class="py-3 px-4">
-    <h4>Cadastro de Estudante</h4>
+    <h4>Cadastro de Curso</h4>
   </div>
   <div class="px-4">
     <%
     Boolean sucesso = Boolean.parseBoolean(request.getAttribute("resultado").toString());
     
     if (sucesso)
-    	out.println("<p>Estudante inserido com sucesso.</p>");
+    	out.println("<p>Curso inserido com sucesso.</p>");
     else
-    	out.println("<p>Erro ao inserir estudante.</p>");
+    	out.println("<p>Erro ao inserir curso.</p>");
     %>
   </div>
   <div class="pt-3 px-4">
-    <a href="EstudanteController" class="btn btn-success">Voltar</a>
+    <a href="CursoController" class="btn btn-success">Voltar</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

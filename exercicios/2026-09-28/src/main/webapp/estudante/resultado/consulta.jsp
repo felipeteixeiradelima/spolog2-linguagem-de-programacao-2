@@ -14,7 +14,7 @@
     <ul class="navbar-nav align-items-center">
       <li><a href="index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
       <li><a href="EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
-      <li><a href="#" class="h5 pt-3 nav-link active">Cursos</a></li>
+      <li><a href="CursoController" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
   <div class="py-3 px-4">
@@ -39,8 +39,8 @@
       for (Estudante estudante : estudantes) {
       	out.println("<tr>");
       	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getId() + "</div></td>");
-      	out.println("<td>" + estudante.getNome() + "</td>");
-      	out.println("<td>" + estudante.getSexo() + "</td>");
+      	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getNome() + "</div></td>");
+      	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getSexo() + "</div></td>");
       	out.println("<td><div class='d-flex justify-content-center'>" + (estudante.getPcd() ? "Sim" : "Não") + "</div></td>");
       	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getIra().toString().replace(".", ",") + "</div></td>");
 

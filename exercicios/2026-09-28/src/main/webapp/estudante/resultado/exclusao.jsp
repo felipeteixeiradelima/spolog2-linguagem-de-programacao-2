@@ -12,7 +12,7 @@
     <ul class="navbar-nav align-items-center">
       <li><a href="index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
       <li><a href="EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
-      <li><a href="#" class="h5 pt-3 nav-link active">Cursos</a></li>
+      <li><a href="CursoController" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
   <div class="py-3 px-4">
