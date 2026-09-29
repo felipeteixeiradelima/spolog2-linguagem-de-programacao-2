@@ -46,6 +46,11 @@ public class Estudante {
     }
 
     @Override
+    public String toString() {
+        return nome;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hashCode(id);
     }

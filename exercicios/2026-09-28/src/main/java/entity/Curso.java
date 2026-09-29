@@ -37,6 +37,11 @@ public class Curso {
     }
 
     @Override
+    public String toString() {
+        return descricao;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hashCode(id);
     }

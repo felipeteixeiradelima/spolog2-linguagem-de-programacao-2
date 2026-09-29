@@ -29,6 +29,7 @@
         <th><div class="d-flex justify-content-center">Sexo</div></th>
         <th><div class="d-flex justify-content-center">PCD</div></th>
         <th><div class="d-flex justify-content-center">IRA</div></th>
+        <th><div class="d-flex justify-content-center">Curso</div></th>
         <th colspan="2"><div class="d-flex justify-content-center">Operações</div></th>
       </tr>
     </thead>
@@ -43,6 +44,8 @@
       	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getSexo() + "</div></td>");
       	out.println("<td><div class='d-flex justify-content-center'>" + (estudante.getPcd() ? "Sim" : "Não") + "</div></td>");
       	out.println("<td><div class='d-flex justify-content-center'>" + estudante.getIra().toString().replace(".", ",") + "</div></td>");
+      	out.println("<td><div class='d-flex justify-content-center'>" +
+                            (estudante.getCurso() != null ? estudante.getCurso().toString() : "") + "</div></td>");
 
         // Botão Alterar
         out.println("<td><div class='d-flex justify-content-center'><form action='estudante/operacao/alteracao.jsp' method='post'>");
@@ -51,6 +54,8 @@
       	out.println("<input type='hidden' name='tdSexo' value='" + estudante.getSexo() + "'>");
       	out.println("<input type='hidden' name='tdPcd' value='" + estudante.getPcd() + "'>");
       	out.println("<input type='hidden' name='tdIra' value='" + estudante.getIra() + "'>");
+      	out.println("<input type='hidden' name='tdCurso' value='" +
+                    (estudante.getCurso() != null ? estudante.getCurso().getId() : "") + "'>");
       	out.println("<input type='submit' name='btAlterar' value='Alterar' class='btn btn-success px-3 py-0'>");
       	out.println("</form></div></td>");
 
@@ -61,6 +66,8 @@
       	out.println("<input type='hidden' name='tdSexo' value='" + estudante.getSexo() + "'>");
       	out.println("<input type='hidden' name='tdPcd' value='" + estudante.getPcd() + "'>");
       	out.println("<input type='hidden' name='tdIra' value='" + estudante.getIra() + "'>");
+      	out.println("<input type='hidden' name='tdCurso' value='" +
+                    (estudante.getCurso() != null ? estudante.getCurso().getId() : "") + "'>");
       	out.println("<input type='submit' name='btExcluir' value='Excluir' class='btn btn-success px-3 py-0'>");
       	out.println("</form></div></td>");
       	out.println("</tr>");
