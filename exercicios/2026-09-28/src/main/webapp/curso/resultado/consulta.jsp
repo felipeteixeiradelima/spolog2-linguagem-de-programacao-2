@@ -61,7 +61,7 @@
       	out.println("</form></div></td>");
 
         // Botão Excluir
-      	out.println("<td><div class='d-flex justify-content-center'><form action='estudante/operacao/exclusao.jsp' method='post'>");
+      	out.println("<td><div class='d-flex justify-content-center'><form action='curso/operacao/exclusao.jsp' method='post'>");
       	out.println("<input type='hidden' name='tdId' value='" + curso.getId() + "'>");
       	out.println("<input type='hidden' name='tdDescricao' value='" + curso.getDescricao() + "'>");
       	out.println("<input type='hidden' name='tdCargaHoraria' value='" + curso.getCargaHoraria() + "'>");

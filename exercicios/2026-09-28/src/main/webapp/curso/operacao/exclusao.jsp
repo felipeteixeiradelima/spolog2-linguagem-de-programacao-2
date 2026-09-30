@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.math.BigDecimal"%>
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Estudante" %>
+<%@ page import="servlet.CursoController" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +27,19 @@
     <p class="my-0"><b>Id: </b> ${param.tdId}</p>
     <p class="my-0"><b>Descrição: </b> ${param.tdDescricao}</p>
     <p class="my-0"><b>Carga Horária: </b> ${param.tdCargaHoraria}</p>
+    <p class="my-0">
+      <b>Estudantes:</b>
+      <ul>
+        <%
+          Long idCurso = Long.parseLong(request.getParameter("tdId"));
+          List<Estudante> estudantes = new CursoController().consultaEstudantesPorCurso(idCurso);
+
+          for (Estudante estudante : estudantes) {
+            out.println(String.format("<li>%s</li>", estudante.getNome()));
+          }
+        %>
+      </ul>
+    </p>
     <form action="../../CursoController?op=exclusao" method="post">
       <input type="hidden" name="txId" value="${param.tdId}">
       <div class="pt-3">

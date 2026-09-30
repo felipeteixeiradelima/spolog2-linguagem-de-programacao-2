@@ -1,6 +1,7 @@
 package servlet;
 
 import entity.Curso;
+import entity.Estudante;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -102,7 +103,15 @@ public class CursoController extends HttpServlet {
     public void excluiCurso(Long id) {
         transaction.begin();
         Curso curso = manager.find(Curso.class, id);
+
+        for (Estudante estudante : curso.getEstudantes()) estudante.setCurso(null);
+
         manager.remove(curso);
         transaction.commit();
+    }
+
+    public List<Estudante> consultaEstudantesPorCurso(Long idCurso) {
+        TypedQuery<Estudante> query = manager.createQuery(String.format("select e from Estudante e inner join fetch e.curso WHERE e.curso.id = %d", idCurso), Estudante.class);
+        return query.getResultList();
     }
 }
