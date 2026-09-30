@@ -34,21 +34,9 @@
         out.println("<p class='my-0'><b>Sexo:</b> " + printableSexo + "</p>");
     %>
     <p class="my-0"><b>PCD: </b> ${param.tdPcd ? "Sim" : "Não"}</p>
-    <!--
-    <%
-    out.println("<p class='my-0'><b>Id:</b> " + request.getParameter("tdId") + "</p>");
-    out.println("<p class='my-0'><b>Nome:</b> " + request.getParameter("tdNome") + "</p>");
-    out.println("<p class='my-0'><b>IRA:</b> " + request.getParameter("tdIra").replace(".", ",") + "'></p>");
-    out.println("<p class='my-0'><b>Disponível:</b> " + request.getParameter("tdPcd") + "</p>");
-    %>
-    -->
+    <p class="my-0"><b>Curso: </b> ${param.tdCurso}</p>
     <form action="../../EstudanteController?op=exclusao" method="post">
       <input type="hidden" name="txId" value=${param.tdId}>
-      <!--
-      <%
-      out.println("<input type='hidden' name='txId' value='" + request.getParameter("tdId") + "'>");
-      %>
-      -->
       <div class="pt-3">
         <input type="submit" name="btExcluir" value="Excluir" class="btn btn-success">
         <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>

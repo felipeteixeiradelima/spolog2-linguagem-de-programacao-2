@@ -67,7 +67,7 @@
       	out.println("<input type='hidden' name='tdPcd' value='" + estudante.getPcd() + "'>");
       	out.println("<input type='hidden' name='tdIra' value='" + estudante.getIra() + "'>");
       	out.println("<input type='hidden' name='tdCurso' value='" +
-                    (estudante.getCurso() != null ? estudante.getCurso().getId() : "") + "'>");
+                    (estudante.getCurso() != null ? estudante.getCurso().toString() : "") + "'>");
       	out.println("<input type='submit' name='btExcluir' value='Excluir' class='btn btn-success px-3 py-0'>");
       	out.println("</form></div></td>");
       	out.println("</tr>");
