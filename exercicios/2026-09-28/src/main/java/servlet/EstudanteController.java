@@ -60,7 +60,7 @@ public class EstudanteController extends HttpServlet {
 
             if (request.getParameter("op").equals("insercao")) {
                 try {
-                    insereEstudante(nome, sexo, pcd, ira);
+                    insereEstudante(nome, sexo, pcd, ira, idCurso);
                     request.setAttribute("resultado", true);
                 } catch (Exception e) {
                     request.setAttribute("resultado", false);
@@ -92,13 +92,14 @@ public class EstudanteController extends HttpServlet {
         return query.getResultList();
     }
 
-    public void insereEstudante(String nome, Character sexo, Boolean pcd, BigDecimal ira) {
+    public void insereEstudante(String nome, Character sexo, Boolean pcd, BigDecimal ira, Long idCurso) {
         transaction.begin();
         Estudante estudante = new Estudante();
         estudante.setNome(nome);
         estudante.setSexo(sexo);
         estudante.setPcd(pcd);
         estudante.setIra(ira);
+        if (idCurso != null) estudante.setCurso(manager.find(Curso.class, idCurso));
         manager.persist(estudante);
         transaction.commit();
     }

@@ -56,10 +56,11 @@
 
         out.println("<p>Curso <select name='slCurso'>");
         List<Curso> cursos = new CursoController().consultaCursos();
+        String idCursoAtual = request.getParameter("tdCurso");
 
         out.println("<option value=''></option>");
         for (Curso curso : cursos) {
-          if (curso.getId() == Long.parseLong(request.getParameter("tdCurso")))
+          if (!idCursoAtual.isEmpty() && curso.getId() == Long.parseLong(idCursoAtual))
             out.println("<option value=" + curso.getId() + " selected>" + curso.toString() + "</option>");
           else
             out.println("<option value=" + curso.getId() + ">" + curso.toString() + "</option>");

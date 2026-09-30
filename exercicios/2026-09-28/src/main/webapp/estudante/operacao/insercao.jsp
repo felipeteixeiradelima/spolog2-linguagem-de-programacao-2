@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Curso" %>
+<%@ page import="servlet.CursoController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,6 +36,19 @@
 	    <label for="ckPcd">PDC</label>
 	  </p>
       <p>IRA <input type="text" name="txIra" size="5"></p>
+      <p>
+        Curso
+        <select name="slCurso">
+          <%
+            List<Curso> cursos = new CursoController().consultaCursos();
+
+            out.println("<option value=''></option>");
+            for (Curso curso : cursos)
+              out.println("<option value=" + curso.getId() + ">" + curso.toString() + "</option>");
+          %>
+        </select>
+
+      </p>
       <div class="pt-3">
         <input type="submit" name="btInserir" value="Inserir" class="btn btn-success">
         <a href="../../EstudanteController" class="btn btn-danger">Cancelar</a>
