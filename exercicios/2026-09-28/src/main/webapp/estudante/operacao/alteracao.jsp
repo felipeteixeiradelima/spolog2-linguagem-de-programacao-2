@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Curso" %>
+<%@ page import="servlet.CursoController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,6 +53,19 @@
       <%
         out.println("<p>IRA <input type='text' name='txIra' size='20' value='" + request.getParameter("tdIra").
                     replace(".", ",") + "'></p>");
+
+        out.println("<p>Curso <select name='slCurso'>");
+        List<Curso> cursos = new CursoController().consultaCursos();
+
+        out.println("<option value=''></option>");
+        for (Curso curso : cursos) {
+          if (curso.getId() == Long.parseLong(request.getParameter("tdCurso")))
+            out.println("<option value=" + curso.getId() + " selected>" + curso.toString() + "</option>");
+          else
+            out.println("<option value=" + curso.getId() + ">" + curso.toString() + "</option>");
+        }
+
+        out.println("</select></p>");
       %>
       <div class="pt-3">
         <input type="submit" name="btAlterar" value="Alterar" class="btn btn-success">

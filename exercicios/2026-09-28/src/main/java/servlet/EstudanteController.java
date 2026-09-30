@@ -1,5 +1,6 @@
 package servlet;
 
+import entity.Curso;
 import entity.Estudante;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -41,6 +42,7 @@ public class EstudanteController extends HttpServlet {
         Character sexo = 'X';
         Boolean pcd = true;
         BigDecimal ira = null;
+        Long idCurso = null;
 
         try {
             if (request.getParameter("op").equals("exclusao") || request.getParameter("op").equals("alteracao"))
@@ -52,6 +54,8 @@ public class EstudanteController extends HttpServlet {
                 if (request.getParameter("ckPcd") == null) pcd = false;
                 if (!(request.getParameter("txIra") == (null)))
                     ira = new BigDecimal(request.getParameter("txIra").replace(",", "."));
+                if (!request.getParameter("slCurso").isEmpty())
+                    idCurso = Long.parseLong(request.getParameter("slCurso"));
             }
 
             if (request.getParameter("op").equals("insercao")) {
@@ -64,12 +68,10 @@ public class EstudanteController extends HttpServlet {
                 destino = getServletContext().getRequestDispatcher("/estudante/resultado/insercao.jsp");
             } else if (request.getParameter("op").equals("alteracao")) {
                 try {
-                    alteraEstudante(id, nome, sexo, pcd, ira);
-                    request.setAttribute("resultado", true);
+                    alteraEstudante(id, nome, sexo, pcd, ira, idCurso); request.setAttribute("resultado", true);
                 } catch (Exception e) {
                     request.setAttribute("resultado", false);
-                }
-                destino = getServletContext().getRequestDispatcher("/estudante/resultado/alteracao.jsp");
+                } destino = getServletContext().getRequestDispatcher("/estudante/resultado/alteracao.jsp");
             } else if (request.getParameter("op").equals("exclusao")) {
                 try {
                     excluiEstudante(id);
@@ -78,8 +80,7 @@ public class EstudanteController extends HttpServlet {
                     request.setAttribute("resultado", false);
                 }
                 destino = getServletContext().getRequestDispatcher("/estudante/resultado/exclusao.jsp");
-            }
-            destino.forward(request, response);
+            } destino.forward(request, response);
         } catch (Exception e) {
             destino = getServletContext().getRequestDispatcher("/erroEntrada.jsp");
             destino.forward(request, response);
@@ -102,13 +103,15 @@ public class EstudanteController extends HttpServlet {
         transaction.commit();
     }
 
-    public void alteraEstudante(Long id, String nome, Character sexo, Boolean pcd, BigDecimal ira) {
+    public void alteraEstudante(Long id, String nome, Character sexo, Boolean pcd, BigDecimal ira, Long idCurso) {
         transaction.begin();
-        Estudante Estudante = manager.find(Estudante.class, id);
-        Estudante.setNome(nome);
-        Estudante.setSexo(sexo);
-        Estudante.setPcd(pcd);
-        Estudante.setIra(ira);
+        Estudante estudante = manager.find(Estudante.class, id);
+        estudante.setNome(nome);
+        estudante.setSexo(sexo);
+        estudante.setPcd(pcd);
+        estudante.setIra(ira);
+        if (idCurso != null) estudante.setCurso(manager.find(Curso.class, idCurso));
+        else estudante.setCurso(null);
         transaction.commit();
     }
 
