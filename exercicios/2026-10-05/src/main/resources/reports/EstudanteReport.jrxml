@@ -1,0 +1,247 @@
+<!-- Created with Jaspersoft Studio version 7.0.8.final using JasperReports Library version 7.0.8-6f896111  -->
+<jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da5a3f97-2583-4d2f-81da-6c462e877eba">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UniversidadeConnection"/>
+	<query language="SQL"><![CDATA[SELECT
+	e.id,
+	e.nome,
+	e.sexo,
+	e.pcd,
+	e.ira,
+	c.descricao,
+	c.carga_horaria
+FROM tb_estudantes e
+INNER JOIN tb_cursos c ON c.id = e.id_curso
+ORDER BY e.id]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
+	</field>
+	<field name="pcd" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="pcd"/>
+		<property name="com.jaspersoft.studio.field.label" value="pcd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
+	</field>
+	<field name="ira" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="ira"/>
+		<property name="com.jaspersoft.studio.field.label" value="ira"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descricao"/>
+		<property name="com.jaspersoft.studio.field.label" value="descricao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cursos"/>
+	</field>
+	<field name="carga_horaria" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="carga_horaria"/>
+		<property name="com.jaspersoft.studio.field.label" value="carga_horaria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cursos"/>
+	</field>
+	<variable name="estudantes_pcd" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[IF($F{pcd}, $F{pcd}, null)]]></expression>
+	</variable>
+	<variable name="estudantes_nao_pcd" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[IF($F{pcd}, null, $F{pcd})]]></expression>
+	</variable>
+	<variable name="total_estudantes" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{id}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<title height="30" splitType="Stretch">
+		<element kind="staticText" uuid="1036d0cf-4b89-4f0d-96c3-a12ad31d1f24" x="0" y="0" width="555" height="30" forecolor="#FFFFFF" backcolor="#000000" mode="Opaque" fontSize="20.0" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<text><![CDATA[Relatório de Estudantes Cadastrados]]></text>
+		</element>
+	</title>
+	<pageHeader height="18" splitType="Stretch">
+		<element kind="staticText" uuid="cc1d58eb-06ab-4334-83b2-0d1b76185655" x="0" y="3" width="90" height="15" bold="true" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<text><![CDATA[Data de Emissão: ]]></text>
+		</element>
+		<element kind="textField" uuid="365423b2-e597-4451-bc51-ecec47a33039" x="90" y="3" width="100" height="15" pattern="dd/MM/yyyy HH:mm" hTextAlign="Left" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="61" splitType="Stretch">
+		<element kind="staticText" uuid="f0f1e54f-ebea-4c0e-ad7f-8ed0b29b8e78" x="0" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79f05386-2c6c-4608-8071-a0fdae2464cc"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<text><![CDATA[id]]></text>
+		</element>
+		<element kind="staticText" uuid="3e02cb3a-bcaf-45d6-82bb-d345e500ca8e" x="79" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8a7bed1-f7f0-4873-ac46-3e7dcaca96a1"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[nome]]></text>
+		</element>
+		<element kind="staticText" uuid="c2ee3bfd-b8e1-4960-b59d-f3e68916bf8b" x="159" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67672376-bec0-4b1f-b482-d5600b7b0c40"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[sexo]]></text>
+		</element>
+		<element kind="staticText" uuid="0429b46f-ccb6-47c3-9b89-64ab4c0bb1c1" x="237" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3513f361-4f8a-4d34-91aa-4a2b805cad33"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[pcd]]></text>
+		</element>
+		<element kind="staticText" uuid="f3dee7f5-17ef-4e8b-bdb6-7f48534a9d49" x="316" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09591bea-accc-44fb-b3c7-31c22169fea6"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[ira]]></text>
+		</element>
+		<element kind="staticText" uuid="037f7bb7-0288-46a6-ab56-84bf6d47ee5c" x="395" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060fcc29-adf3-4a1b-b4ea-3617f536780a"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[descricao]]></text>
+		</element>
+		<element kind="staticText" uuid="8c0c5dca-1a5f-448f-ab73-faf9cea3ae4b" x="474" y="0" width="81" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d04726b-7f8e-427a-98c5-e6ce3ef783f1"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[carga_horaria]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<element kind="textField" uuid="7d8dfc07-177f-49bf-abe9-72aabdbc4a8c" x="0" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79f05386-2c6c-4608-8071-a0fdae2464cc"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<expression><![CDATA[$F{id}]]></expression>
+			</element>
+			<element kind="textField" uuid="df0bb608-d6c4-4238-93af-3dc1d0901c1e" x="79" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8a7bed1-f7f0-4873-ac46-3e7dcaca96a1"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<expression><![CDATA[$F{nome}]]></expression>
+			</element>
+			<element kind="textField" uuid="a7420941-904a-4206-8c1e-fc6aca977df6" x="158" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67672376-bec0-4b1f-b482-d5600b7b0c40"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<expression><![CDATA[$F{sexo}]]></expression>
+			</element>
+			<element kind="textField" uuid="910c05c6-905f-40cd-b2e3-1be1214c38e8" x="316" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09591bea-accc-44fb-b3c7-31c22169fea6"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<expression><![CDATA[$F{ira}]]></expression>
+			</element>
+			<element kind="image" uuid="0f02aff9-cd3b-4d3c-8978-370b5f34727b" x="271" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<printWhenExpression><![CDATA[$F{pcd}==false]]></printWhenExpression>
+				<expression><![CDATA["./src/main/resources/images/nok.png"]]></expression>
+			</element>
+			<element kind="image" uuid="0c8f2cdd-77e1-470d-8743-4bdd279664e3" x="271" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<printWhenExpression><![CDATA[$F{pcd}==true]]></printWhenExpression>
+				<expression><![CDATA["./src/main/resources/images/ok.png"]]></expression>
+			</element>
+			<element kind="textField" uuid="e9e92f64-18eb-45e8-93be-2662e5354f5b" x="395" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060fcc29-adf3-4a1b-b4ea-3617f536780a"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<expression><![CDATA[$F{descricao}]]></expression>
+			</element>
+			<element kind="textField" uuid="36c49d50-b62a-4149-ae9e-53fad5dcb041" x="475" y="0" width="80" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d04726b-7f8e-427a-98c5-e6ce3ef783f1"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<expression><![CDATA[$F{carga_horaria}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="15" splitType="Stretch">
+		<element kind="staticText" uuid="ea8b1cfa-fb2a-452b-a616-5b2cc7d58fd2" x="0" y="0" width="135" height="15" fontSize="9.0">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[Relatório de Estudantes Cadastrados]]></text>
+		</element>
+		<element kind="textField" uuid="04813284-d408-4526-8318-a799d31f1436" x="400" y="0" width="100" height="15" fontSize="9.0" hTextAlign="Right">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<expression><![CDATA["Página " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="113a9a8e-a255-439f-8bc2-f5be88b40f2d" x="500" y="0" width="55" height="15" fontSize="9.0" evaluationTime="Report" hTextAlign="Left">
+			<expression><![CDATA[" de " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="60" splitType="Stretch">
+		<element kind="staticText" uuid="3b0fd0f6-13d8-4dd0-82f8-d86f0aa30cf0" x="427" y="15" width="93" height="15" fontSize="9.0" bold="false" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[Estudantes PCD: ]]></text>
+		</element>
+		<element kind="staticText" uuid="c45de132-e37b-4738-bd63-3ec23efbc41a" x="427" y="30" width="93" height="15" fontSize="9.0" bold="false" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[Estudantes não PCD:]]></text>
+		</element>
+		<element kind="staticText" uuid="3cc498ef-5063-43db-8a69-f2f0ced70b1a" x="427" y="45" width="93" height="15" fontSize="9.0" bold="true" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<text><![CDATA[Total de Estudantes: ]]></text>
+		</element>
+		<element kind="textField" uuid="c445490e-507c-4d9f-b925-b507fc8d9b55" x="520" y="15" width="25" height="15" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<expression><![CDATA[$V{estudantes_pcd}]]></expression>
+		</element>
+		<element kind="textField" uuid="ea609a10-a97b-4300-a7df-152887035c88" x="520" y="30" width="25" height="15" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<expression><![CDATA[$V{estudantes_nao_pcd}]]></expression>
+		</element>
+		<element kind="textField" uuid="38ea3101-3821-42c1-8dce-47fa2cd2c476" x="520" y="45" width="25" height="15" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<expression><![CDATA[$V{total_estudantes}]]></expression>
+		</element>
+		<element kind="line" uuid="c273878e-c78b-4c28-9e26-63a5d5317b9a" x="0" y="7" width="555" height="1">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+	</summary>
+</jasperReport>
