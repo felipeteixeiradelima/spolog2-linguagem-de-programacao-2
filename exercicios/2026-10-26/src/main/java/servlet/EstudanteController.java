@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import persistence.JpaUtil;
+import reports.EstudanteRelatorio;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -68,10 +69,12 @@ public class EstudanteController extends HttpServlet {
                 destino = getServletContext().getRequestDispatcher("/estudante/resultado/insercao.jsp");
             } else if (request.getParameter("op").equals("alteracao")) {
                 try {
-                    alteraEstudante(id, nome, sexo, pcd, ira, idCurso); request.setAttribute("resultado", true);
+                    alteraEstudante(id, nome, sexo, pcd, ira, idCurso);
+                    request.setAttribute("resultado", true);
                 } catch (Exception e) {
                     request.setAttribute("resultado", false);
-                } destino = getServletContext().getRequestDispatcher("/estudante/resultado/alteracao.jsp");
+                }
+                destino = getServletContext().getRequestDispatcher("/estudante/resultado/alteracao.jsp");
             } else if (request.getParameter("op").equals("exclusao")) {
                 try {
                     excluiEstudante(id);
@@ -80,7 +83,8 @@ public class EstudanteController extends HttpServlet {
                     request.setAttribute("resultado", false);
                 }
                 destino = getServletContext().getRequestDispatcher("/estudante/resultado/exclusao.jsp");
-            } destino.forward(request, response);
+            }
+            destino.forward(request, response);
         } catch (Exception e) {
             destino = getServletContext().getRequestDispatcher("/erroEntrada.jsp");
             destino.forward(request, response);
@@ -121,5 +125,10 @@ public class EstudanteController extends HttpServlet {
         Estudante estudante = manager.find(Estudante.class, id);
         manager.remove(estudante);
         transaction.commit();
+    }
+
+    public List<EstudanteRelatorio> geraRelatorioEstudante() {
+        TypedQuery<EstudanteRelatorio> query = manager.createQuery("SELECT e.id, e.nome, e.sexo, e.pcd, e.ira, c.descricao AS curso FROM entity.Estudante AS e INNER JOIN entity.Curso AS c ON e.curso = c ORDER BY e.id", EstudanteRelatorio.class);
+        return query.getResultList();
     }
 }
