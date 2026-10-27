@@ -11,12 +11,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.apache.commons.collections4.map.HashedMap;
 import persistence.JpaUtil;
 import reports.EstudanteRelatorio;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/EstudanteController")
 public class EstudanteController extends HttpServlet {
@@ -31,8 +40,28 @@ public class EstudanteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("estudantes", consultaEstudantes());
-        destino = getServletContext().getRequestDispatcher("/estudante/resultado/consulta.jsp");
+        if (request.getParameter("op").equals("consulta")) {
+            request.setAttribute("estudantes", consultaEstudantes());
+            destino = getServletContext().getRequestDispatcher("/estudante/resultado/consulta.jsp");
+            destino.forward(request, response);
+            return;
+        }
+
+        List<EstudanteRelatorio> estudantes = geraRelatorioEstudante();
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(estudantes);
+        InputStream relatorio = getClass().getResourceAsStream("/jasper/RelatorioEstudantes.jasper");
+        Map<String, Object> parametros = new HashedMap<String, Object>();
+
+        try {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros, dataSource);
+            File pdfFile = new File("scr/main/webapp/reports/RelatorioEstudantes.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFile.getAbsolutePath());
+            System.out.println("\nRelatório gravado em: " + pdfFile.getAbsolutePath());
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
+        destino = getServletContext().getRequestDispatcher("/estudante/RelatorioEstudante.jsp");
         destino.forward(request, response);
     }
 
