@@ -23,7 +23,7 @@ ORDER BY e.id]]></query>
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
 	</field>
-	<field name="sexo" class="java.lang.String">
+	<field name="sexo" class="java.lang.Character">
 		<property name="com.jaspersoft.studio.field.name" value="sexo"/>
 		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
@@ -38,14 +38,9 @@ ORDER BY e.id]]></query>
 		<property name="com.jaspersoft.studio.field.label" value="ira"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_estudantes"/>
 	</field>
-	<field name="descricao" class="java.lang.String">
+	<field name="curso" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="descricao"/>
 		<property name="com.jaspersoft.studio.field.label" value="descricao"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cursos"/>
-	</field>
-	<field name="carga_horaria" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="carga_horaria"/>
-		<property name="com.jaspersoft.studio.field.label" value="carga_horaria"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cursos"/>
 	</field>
 	<variable name="estudantes_pcd" calculation="Count" class="java.lang.Integer">
@@ -80,113 +75,99 @@ ORDER BY e.id]]></query>
 		</element>
 	</pageHeader>
 	<columnHeader height="61" splitType="Stretch">
-		<element kind="staticText" uuid="f0f1e54f-ebea-4c0e-ad7f-8ed0b29b8e78" x="0" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="f0f1e54f-ebea-4c0e-ad7f-8ed0b29b8e78" x="0" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79f05386-2c6c-4608-8071-a0fdae2464cc"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<text><![CDATA[id]]></text>
 		</element>
-		<element kind="staticText" uuid="3e02cb3a-bcaf-45d6-82bb-d345e500ca8e" x="79" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="3e02cb3a-bcaf-45d6-82bb-d345e500ca8e" x="93" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8a7bed1-f7f0-4873-ac46-3e7dcaca96a1"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<text><![CDATA[nome]]></text>
 		</element>
-		<element kind="staticText" uuid="c2ee3bfd-b8e1-4960-b59d-f3e68916bf8b" x="159" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="c2ee3bfd-b8e1-4960-b59d-f3e68916bf8b" x="186" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67672376-bec0-4b1f-b482-d5600b7b0c40"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<text><![CDATA[sexo]]></text>
 		</element>
-		<element kind="staticText" uuid="0429b46f-ccb6-47c3-9b89-64ab4c0bb1c1" x="237" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="0429b46f-ccb6-47c3-9b89-64ab4c0bb1c1" x="279" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3513f361-4f8a-4d34-91aa-4a2b805cad33"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<text><![CDATA[pcd]]></text>
 		</element>
-		<element kind="staticText" uuid="f3dee7f5-17ef-4e8b-bdb6-7f48534a9d49" x="316" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="f3dee7f5-17ef-4e8b-bdb6-7f48534a9d49" x="372" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09591bea-accc-44fb-b3c7-31c22169fea6"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<text><![CDATA[ira]]></text>
 		</element>
-		<element kind="staticText" uuid="037f7bb7-0288-46a6-ab56-84bf6d47ee5c" x="395" y="0" width="79" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="staticText" uuid="037f7bb7-0288-46a6-ab56-84bf6d47ee5c" x="465" y="0" width="92" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060fcc29-adf3-4a1b-b4ea-3617f536780a"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<text><![CDATA[descricao]]></text>
-		</element>
-		<element kind="staticText" uuid="8c0c5dca-1a5f-448f-ab73-faf9cea3ae4b" x="474" y="0" width="81" height="15" forecolor="#FFFFFF" backcolor="#007B00" mode="Opaque" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d04726b-7f8e-427a-98c5-e6ce3ef783f1"/>
-			<property name="com.jaspersoft.studio.unit.x" value="px"/>
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<text><![CDATA[carga_horaria]]></text>
+			<text><![CDATA[curso]]></text>
 		</element>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
-			<element kind="textField" uuid="7d8dfc07-177f-49bf-abe9-72aabdbc4a8c" x="0" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="7d8dfc07-177f-49bf-abe9-72aabdbc4a8c" x="0" y="0" width="93" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79f05386-2c6c-4608-8071-a0fdae2464cc"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<expression><![CDATA[$F{id}]]></expression>
 			</element>
-			<element kind="textField" uuid="df0bb608-d6c4-4238-93af-3dc1d0901c1e" x="79" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
+			<element kind="textField" uuid="df0bb608-d6c4-4238-93af-3dc1d0901c1e" x="93" y="0" width="93" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8a7bed1-f7f0-4873-ac46-3e7dcaca96a1"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				<expression><![CDATA[$F{nome}]]></expression>
 			</element>
-			<element kind="textField" uuid="a7420941-904a-4206-8c1e-fc6aca977df6" x="158" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="a7420941-904a-4206-8c1e-fc6aca977df6" x="186" y="0" width="93" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67672376-bec0-4b1f-b482-d5600b7b0c40"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				<expression><![CDATA[$F{sexo}]]></expression>
 			</element>
-			<element kind="textField" uuid="910c05c6-905f-40cd-b2e3-1be1214c38e8" x="316" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="910c05c6-905f-40cd-b2e3-1be1214c38e8" x="372" y="0" width="93" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09591bea-accc-44fb-b3c7-31c22169fea6"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				<expression><![CDATA[$F{ira}]]></expression>
 			</element>
-			<element kind="image" uuid="0f02aff9-cd3b-4d3c-8978-370b5f34727b" x="271" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
+			<element kind="image" uuid="0f02aff9-cd3b-4d3c-8978-370b5f34727b" x="319" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<printWhenExpression><![CDATA[$F{pcd}==false]]></printWhenExpression>
-				<expression><![CDATA["./src/main/resources/images/nok.png"]]></expression>
+				<expression><![CDATA[this.getClass().getResourceAsStream("/images/nok.png")]]></expression>
 			</element>
-			<element kind="image" uuid="0c8f2cdd-77e1-470d-8743-4bdd279664e3" x="271" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
+			<element kind="image" uuid="0c8f2cdd-77e1-470d-8743-4bdd279664e3" x="319" y="1" width="12" height="18" hImageAlign="Center" vImageAlign="Middle">
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<printWhenExpression><![CDATA[$F{pcd}==true]]></printWhenExpression>
-				<expression><![CDATA["./src/main/resources/images/ok.png"]]></expression>
+				<expression><![CDATA[this.getClass().getResourceAsStream("/images/ok.png")]]></expression>
 			</element>
-			<element kind="textField" uuid="e9e92f64-18eb-45e8-93be-2662e5354f5b" x="395" y="0" width="79" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
+			<element kind="textField" uuid="e9e92f64-18eb-45e8-93be-2662e5354f5b" x="465" y="0" width="92" height="20" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle">
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060fcc29-adf3-4a1b-b4ea-3617f536780a"/>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				<expression><![CDATA[$F{descricao}]]></expression>
-			</element>
-			<element kind="textField" uuid="36c49d50-b62a-4149-ae9e-53fad5dcb041" x="475" y="0" width="80" height="20" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d04726b-7f8e-427a-98c5-e6ce3ef783f1"/>
-				<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				<expression><![CDATA[$F{carga_horaria}]]></expression>
+				<expression><![CDATA[$F{curso}]]></expression>
 			</element>
 		</band>
 	</detail>

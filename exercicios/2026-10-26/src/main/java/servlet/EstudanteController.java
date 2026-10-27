@@ -4,6 +4,7 @@ import entity.Curso;
 import entity.Estudante;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -49,19 +50,19 @@ public class EstudanteController extends HttpServlet {
 
         List<EstudanteRelatorio> estudantes = geraRelatorioEstudante();
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(estudantes);
-        InputStream relatorio = getClass().getResourceAsStream("/jasper/RelatorioEstudantes.jasper");
+        InputStream relatorio = getClass().getResourceAsStream("/jasper/EstudanteReport.jasper");
         Map<String, Object> parametros = new HashedMap<String, Object>();
 
         try {
             JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros, dataSource);
-            File pdfFile = new File("scr/main/webapp/reports/RelatorioEstudantes.pdf");
+            File pdfFile = new File(getServletContext().getRealPath("/reports"), "RelatorioEstudantes.pdf");
             JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFile.getAbsolutePath());
             System.out.println("\nRelatório gravado em: " + pdfFile.getAbsolutePath());
         } catch (JRException e) {
             e.printStackTrace();
         }
 
-        destino = getServletContext().getRequestDispatcher("/estudante/RelatorioEstudante.jsp");
+        destino = getServletContext().getRequestDispatcher("/estudante/relatorioEstudante.jsp");
         destino.forward(request, response);
     }
 
@@ -156,8 +157,10 @@ public class EstudanteController extends HttpServlet {
         transaction.commit();
     }
 
+    @SuppressWarnings("unchecked")
     public List<EstudanteRelatorio> geraRelatorioEstudante() {
-        TypedQuery<EstudanteRelatorio> query = manager.createQuery("SELECT e.id, e.nome, e.sexo, e.pcd, e.ira, c.descricao AS curso FROM entity.Estudante AS e INNER JOIN entity.Curso AS c ON e.curso = c ORDER BY e.id", EstudanteRelatorio.class);
-        return query.getResultList();
+        Query query = manager.createNativeQuery("SELECT e.id, e.nome, e.sexo, e.pcd, e.ira, c.descricao AS curso " + "FROM tb_estudantes AS e " + "INNER JOIN tb_cursos AS c ON e.id_curso = c.id " + "ORDER BY e.id", EstudanteRelatorio.class);
+
+        return (List<EstudanteRelatorio>) query.getResultList();
     }
 }
