@@ -11,7 +11,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <ul class="navbar-nav align-items-center">
       <li><a href="index.html" class="h4 px-4 text-decoration-none text-white">Universidade</a></li>
-      <li><a href="EstudanteController" class="h5 pt-3 nav-link active">Estudantes</a></li>
+      <li><a href="EstudanteController?op=consulta" class="h5 pt-3 nav-link active">Estudantes</a></li>
       <li><a href="CursoController" class="h5 pt-3 nav-link active">Cursos</a></li>
     </ul>
   </nav>
@@ -29,7 +29,7 @@
     %>
   </div>
   <div class="pt-3 px-4">
-    <a href="EstudanteController" class="btn btn-success">Voltar</a>
+    <a href="EstudanteController?op=consulta" class="btn btn-success">Voltar</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
